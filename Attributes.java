@@ -28,7 +28,7 @@ public class Attributes {
 	//spell damage
 	private int spell;
 	
-	
+	// great job
 	
 	totalhp = 10+(con)/2;
 	melee = str-10+;
