@@ -1,4 +1,3 @@
-import java.util.Objects;
 /**
  * @author Catherine Grillo
  * @date created 3/09/2016
@@ -6,6 +5,9 @@ import java.util.Objects;
  *attribute class to set the strength, wisdom, dexterity,
  *constitution, and intelligence of a character.
  */
+
+import java.util.Objects;
+
 public class Attributes {
 	//strength used for melee attacks
 	private int str;
@@ -15,25 +17,22 @@ public class Attributes {
 	private int con;
 	//wisdom used for magic attacks
 	private int wis;
-	//accuracy
-	private int acc;
+	//attack points
+	private int ap;
 	
-	private int healthT;
+	private int totalhp;
 	//current health
 	private int currenthp;
-	//melee damage
-	private int melee;
-	//ranged damage
-	private int ranged;
-	//spell damage
-	private int spell;
+	
+	private String race = new String;
+	private String type = new String;
 	
 	
 	
 	totalhp = 10+(con)/2;
-	melee = str-10+;
-	ranged = dex-10;
-	spell = wis-10;
+	melee = str-10+ Math.random()*10;
+	ranged = dex-10+ Math.random()*10;
+	spell = wis-10+ Math.random()*10;
 	currenthp = totalhp;
 	
 	//methods to alter attributes
@@ -53,5 +52,15 @@ public class Attributes {
 		this.wis = wis;
 	}
 	
-	
+	public void setAttack(String type) {
+		if (Objects.equals(type,"warrior")) {
+			this.ap = 15+str;
+		}
+		else if (Objects.equals(type,"wizard")) {
+			this.ap = 17+wis;
+		}
+		else if (Objects.equals(type,"ranger")) {
+			this.ap = 12+dex;
+		}
+	}
 }
