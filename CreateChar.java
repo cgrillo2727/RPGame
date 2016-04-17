@@ -1,7 +1,7 @@
 /**
  * @author Catherine Grillo
  *@date created 03/09/2016
- *@date updated 04/15/2016
+ *@date updated 04/17/2016
  *CreateChar uses Attributes class to initialize characters
  */
 
@@ -12,14 +12,14 @@ public class CreateChar extends Attributes {
 	//create a sorcerer, fighter, or ranger
 	//with preset stats and weapon that are best for those classes
 	//creator can pick race and name
-	public CreateChar(String name, String race, String type, int str, int dex, int wis, int con){
+	public CreateChar(String name, String race, String type, int con, int str, int dex, int wis){
 		this.setType(type);
 		this.setName(name);
 		this.setRace(race);
+		this.setCon(con);
 		this.setStr(str);
 		this.setDex(dex);
 		this.setWis(wis);
-		this.setCon(con);
 		
 		setWeapon(type);
 		setAp(type);

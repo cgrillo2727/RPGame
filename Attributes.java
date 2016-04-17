@@ -1,7 +1,7 @@
 /**
  * @author Catherine Grillo
  * @date created 3/09/2016
- *@date updated 4/15/2016
+ *@date updated 4/17/2016
  *attribute class to hold and set all attributes of a character.
  */
 
@@ -12,6 +12,8 @@ public class Attributes {
 	String name = new String();
 	//races: human, lizard, elf
 	String race = new String();
+	//race bonus gives some attribute bonus based on race
+	int rBonus = 5;
 	//type is character class: warrior, ranger, wizard
 	String type = new String();
 	
@@ -41,7 +43,7 @@ public class Attributes {
 	double acc;
 	
 	//total health (doesn't change)
-	int totalhp = 10+con;
+	int totalhp = (10+con)*20;
 	//current health (starts = to totalhp, reduced by combat)
 	int currenthp = totalhp;
 	
@@ -95,49 +97,61 @@ public class Attributes {
 	
 	//calculate attack points based on type
 	public void setAp(String type) {
+		//warriors have medium attack power
 		if (Objects.equals(type,"warrior")) {
-			//warriors have medium attack power
 			this.ap = 15+str+wBonus;
 		}
+		//wizards have high attack power
 		else if (Objects.equals(type,"wizard")) {
-			//wizards have high attack power
 			this.ap = 17+wis+wBonus;
 		}
+		//rangers have low attack power
 		else {
-			//rangers have low attack power
 			this.ap = 12+dex+wBonus;
+		}
+		//lizards get a racial bonus to attack power
+		if (Objects.equals(race, "lizard")) {
+			this.ap+=(rBonus/2);
 		}
 	}
 	
 	//calculate defense based on type (and constitution)
 		public void setDefense(String type) {
+			//warriors have high defense
 			if (Objects.equals(type,"warrior")) {
-				//warriors have high defense
 				this.defense = (17+con/2.0)/100;
 			}
+			//wizards have low defense
 			else if (Objects.equals(type,"wizard")) {
-				//wizards have low defense
 				this.defense = (12+con/2.0)/100;
 			}
+			//rangers have medium
 			else  {
-				//rangers have medium
 				this.defense = (15+con/2.0)/100;
+			}
+			//humans get a racial bonus to defense
+			if (Objects.equals(race, "human")) {
+				this.defense+=(rBonus/100.0);
 			}
 		}
 		
 		//calculate accuracy based on type
 		public void setAcc(String type) {
+			//warriors have low accuracy
 			if (Objects.equals(type,"warrior")) {
-				//warriors have low accuracy
+				this.acc = 90/100.0;
+			}
+			//wizards have medium accuracy
+			else if (Objects.equals(type,"wizard")) {
 				this.acc = 92/100.0;
 			}
-			else if (Objects.equals(type,"wizard")) {
-				//wizards have medium accuracy
+			//rangers have high accuracy
+			else  {
 				this.acc = 95/100.0;
 			}
-			else  {
-				//rangers have high accuracy
-				this.acc = 97/100.0;
+			//elves get a racial bonus to accuracy
+			if (Objects.equals(race, "elf")) {
+				this.acc+=(rBonus/100.0);
 			}
 		}
 		
