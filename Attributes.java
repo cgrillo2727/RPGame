@@ -30,10 +30,13 @@ public class Attributes {
 	//constitution used for health
 	int con;
 	
+
+	//weapon equipped or no?
+	boolean weaponEquipped = false;
 	//weapon type
 	String weapon = new String();
 	//weapon bonus based on advancement
-	int wBonus = 5;
+	int wBonus = 0;
 	
 	//attack points
 	int ap;
@@ -79,19 +82,21 @@ public class Attributes {
 	
 	//set weapon type based on character type
 	public void setWeapon(String type) {
-		if (Objects.equals(type,"warrior")) {
-			weapon = "battle axe";
-		}
-		else if (Objects.equals(type,"wizard")) {
-			weapon = "staff";
-		}
-		else {
-			weapon = "longbow";
+		if (weaponEquipped) {
+			if (Objects.equals(type,"warrior")) {
+				weapon = "battle axe";
+			}
+			else if (Objects.equals(type,"wizard")) {
+				weapon = "staff";
+			}
+			else {
+				weapon = "longbow";
+			}
 		}
 	}
 	
-	//increase weapon bonus after advancement
-	public void upWBonus() {
+	//after character receives weapon, weapon bonus = 10
+	public void setWBonus() {
 		wBonus = 10;
 	}
 	
