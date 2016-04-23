@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /*
  * @author Ian Gompers, Catherine Grillo
  * @date created Fri, Apr 15, 2016  2:36:34 AM
@@ -9,20 +11,17 @@ public class Character {
 	// object data
 	
 	//name of character
-	String name = new String();
+	private String name = new String();
 	//type is character class: warrior, ranger, wizard
-	String type = new String();
+	private String type = new String();
 	//races: human, lizard, elf
-	String race = new String();
+	private String race = new String();
 	//race bonus gives some attribute bonus based on race
-	int raceBonus = 5;
+	private double raceBonus = 0.05;
 
-
-
-	
 	private int constitution;
-	private int health = (10+constitution)*15;
-	private int currentHealth = health;
+	private double health = (10+constitution)*15;
+	private double currentHealth = health;
 	private int strength;
 	private int dexterity;
 	private int wisdom;
@@ -31,15 +30,17 @@ public class Character {
 	private double attack;
 	
 	//weapon type
-	String weapon = new String();
+	private String weapon = new String();
 	//weapon bonus based on advancement
-	int weaponBonus;
-	
+	private double weaponBonus = 0.0;
+
+	//for combat
+	//is character in "defend" mode
+	private boolean defending = false;
+	//defense counter
+	int counter = 0;
 	
 	// object constructor
-	//create a sorcerer, fighter, or ranger
-	//with preset stats and weapon that are best for those classes
-	//creator can pick race and name
 	public Character(String type, String name, String race, int constitution, int strength, int dexterity, int wisdom) {
 		this.setType(type);
 		this.setName(name);
@@ -63,7 +64,7 @@ public class Character {
 		return this.race;
 	}
 	
-	int getRaceBonus() {
+	double getRaceBonus() {
 		return this.raceBonus;
 	}
 	
@@ -71,11 +72,11 @@ public class Character {
 		return this.constitution;
 	}
 	
-	int getHealth() {
+	double getHealth() {
 		return this.health;
 	}
 	
-	int getCurrentHealth() {
+	double getCurrentHealth() {
 		return this.currentHealth;
 	}
 	
@@ -107,9 +108,19 @@ public class Character {
 		return this.weapon;
 	}
 	
-	int getWeaponBonus() {
+	double getWeaponBonus() {
 		return this.weaponBonus;
 	}
+	
+	boolean getDefending() {
+		return this.defending;
+	}
+	
+	int getCounter() {
+		return this.counter;
+	}
+	
+	
 	
 	
 	// modify object data	
@@ -125,7 +136,7 @@ public class Character {
 		this.race = race;
 	}
 	
-	void setRaceBonus(int raceBonus) {
+	void setRaceBonus(double raceBonus) {
 		this.raceBonus = raceBonus;
 	}
 	
@@ -133,7 +144,7 @@ public class Character {
 		this.constitution = constitution;
 	}
 	
-	void setCurrentHealth(int currentHealth) {
+	void setCurrentHealth(double currentHealth) {
 		this.currentHealth = currentHealth;
 	}
 	
@@ -161,12 +172,39 @@ public class Character {
 		this.attack = attack;
 	}
 	
-	void setWeapon(String weapon) {
-		this.weapon = weapon;
+	//set weapon type based on character type
+	void setWeapon() {
+		if (Objects.equals(this.type,"warrior")) {
+			weapon = "battle axe";
+		}
+		else if (Objects.equals(this.type,"wizard")) {
+			weapon = "staff";
+		}
+		else {
+			weapon = "longbow";
+		}
 	}
 	
-	void setWeaponBonus(int weaponBonus) {
+	void setWeaponBonus(double weaponBonus) {
 		this.weaponBonus = weaponBonus;
+	}
+	
+	void setDefending(boolean defending) {
+		this.defending = defending;
+	}
+	
+	void setCounter(int counter) {
+		this.counter = counter;
+	}
+	
+	
+	
+	
+	void printchar() {
+		System.out.println("name: "+this.name+"\nclass: "+
+				this.type+"\nrace: "+this.race+"\nweapon: "+this.weapon+"\nstrength: "+this.strength+"\nwisdom: "+
+				this.wisdom+"\ndexterity: "+this.dexterity+"\nconstitution: "+this.constitution);
+
 	}
 			
 } // end Character class
