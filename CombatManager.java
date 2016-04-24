@@ -1,5 +1,6 @@
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 /*
  * @author Ian Gompers, Catherine Grillo
  * @date created Fri, Apr 15, 2016  2:36:34 AM
@@ -8,21 +9,21 @@ import java.util.Scanner;
  */
 public class CombatManager {
 	
-	public void setStates(Character player) {
+	static void setStates(Character player) {
 		if (Objects.equals(player.getType(), "warrior")) {
-			player.setDefense(0.07+player.getConstitution()/200.0);
+			player.setDefense(0.1+player.getConstitution()/100.0);
 			player.setAttack(0.05+player.getWeaponBonus()+player.getStrength()/100.0);			
-			player.setAccuracy(0.82);
+			player.setAccuracy(0.80);
 		}
 		else if (Objects.equals(player.getType(), "wizard")) {
-			player.setDefense(0.02+player.getConstitution()/200.0);
-			player.setAttack(0.07+player.getWeaponBonus()+player.getWisdom()/100.0);
+			player.setDefense(player.getConstitution()/100.0);
+			player.setAttack(0.1+player.getWeaponBonus()+player.getWisdom()/100.0);
 			player.setAccuracy(0.85);
 		}
 		else {
-			player.setDefense(0.05+player.getConstitution()/200.0);
-			player.setAttack(0.02+player.getWeaponBonus()+player.getDexterity()/100.0);
-			player.setAccuracy(0.87);
+			player.setDefense(0.05+player.getConstitution()/100.0);
+			player.setAttack(player.getWeaponBonus()+player.getDexterity()/100.0);
+			player.setAccuracy(0.90);
 		}
 		
 		//humans get a racial bonus to defense
@@ -37,24 +38,26 @@ public class CombatManager {
 		else {
 			player.setAccuracy(player.getAccuracy()+player.getRaceBonus());
 		}
+		
 	}
 	
 	//reduce character health
-	void loseHealth(Character player, double damage) {
+	static void loseHealth(Character player, double damage) {
 		damage = damage*(1-player.getDefense());
 		player.setCurrentHealth(player.getCurrentHealth()-damage);
 		
-		System.out.println(player.getName()+"took "+damage+" points of damage.");
+		System.out.printf(player.getName()+" took %.2f points of damage.\n",damage);
 		
 		if (player.getCurrentHealth() <=0) {
 			System.out.println(player.getName()+" has died");
 			player.setCurrentHealth(0);
 		}
 		else {
-			System.out.println(player.getName()+" has "+player.getCurrentHealth()+" health left");
+			System.out.printf(player.getName()+" has %.2f health left.\n\n",player.getCurrentHealth());
 		}
 	}
-	boolean hit(Character player, double mod) {
+	
+	static boolean hit(Character player, double mod) {
 		boolean hits;
 		double chance = Math.random();
 		if (chance<(player.getAccuracy()+mod)) {hits = true;}
@@ -62,7 +65,7 @@ public class CombatManager {
 		return hits;
 	}
 	
-	void reduceCounter(Character player) {
+	static void reduceCounter(Character player) {
 		if (player.getDefending()) {
 			player.setCounter(player.getCounter()-1);
 			if (player.getCounter()==0) {
@@ -73,13 +76,43 @@ public class CombatManager {
 		}
 	}
 	
-	void initiateCombatSession(Character player, Character npc) {
-		// prompt user with appropriate choices
-		//quick attack, strong attack, defense
+	static void attack(Character attacker, Character defender, int choice) {
+		double damage = 0;
+		if (choice==1) {
+			//precision attack
+			if (hit(attacker, .1)) {
+				damage = 20*(1+attacker.getAttack());
+				System.out.println(attacker.getName()+" hit with their Precision Attack.\n");
+			}
+			else {
+				System.out.println(attacker.getName()+" missed with their Precision Attack.\n");
+			}
+		}
+		else if (choice==2) {
+			//strong attack
+			if (hit(attacker, 0)) {
+				damage = 20*(1.1+attacker.getAttack());
+				System.out.println(attacker.getName()+" hit with their Strong Attack.\n");
+			}
+			else {
+				System.out.println(attacker.getName()+" missed with their Strong Attack.\n");
+			}
+		}
+		else {
+			//defend
+			attacker.setDefending(true);
+			attacker.setDefense(attacker.getDefense()+0.05);
+			attacker.setCounter(2);	
+			System.out.println(attacker.getName()+" is Defending.\n");
+		}
+		if (damage>0) {loseHealth(defender,damage);}
+	}
+	
+	static void initiateCombatSession(Character player, Character npc) {
 
 		Scanner user_input = new Scanner(System.in);
 		try {
-			System.out.println(player.getName()+"is now fighting "+npc.getName());
+			System.out.println(player.getName()+" is now fighting "+npc.getName());
 			while (true) {
 				//player's turn
 				System.out.println("It is "+player.getName()+"'s turn.");
@@ -97,19 +130,20 @@ public class CombatManager {
 					break;
 				}
 				
+				
 				//npc's turn
 				System.out.println("It is "+npc.getName()+"'s turn.");
 
 				reduceCounter(npc);
 				
-				int chance = (int) Math.random()*100;
-				choice = (chance%3)+1;
+				choice = ThreadLocalRandom.current().nextInt(1, 4);
 				attack(npc, player, choice);
 				
 				if (player.getCurrentHealth()==0) {
 					System.out.println("Oh no! "+player.getName()+" lost to "+npc.getName()+"!");
 					break;
 				}
+				
 			}
 			
 		}//end try
@@ -118,34 +152,7 @@ public class CombatManager {
 		}//end finally
 	}
 	
-	void attack(Character attacker, Character defender, int choice) {
-		double damage = 0;
-		if (choice==1) {
-			//precision attack
-			if (hit(attacker, .05)) {
-				damage = 20*(1+attacker.getAttack());
-			}
-			else {
-				System.out.println(attacker.getName()+"missed with their Precision Attack.");
-			}
-		}
-		else if (choice==2) {
-			//strong attack
-			if (hit(attacker, 0)) {
-				damage = 20*(1.05+attacker.getAttack());
-			}
-			else {
-				System.out.println(attacker.getName()+"missed with their Strong Attack.");
-			}
-		}
-		else {
-			//defend
-			attacker.setDefending(true);
-			attacker.setDefense(attacker.getDefense()+0.05);
-			attacker.setCounter(2);	
-		}
-		loseHealth(defender,damage);
-	}
+
 	
 
 	

@@ -203,7 +203,8 @@ public class Character {
 	void printchar() {
 		System.out.println("name: "+this.name+"\nclass: "+
 				this.type+"\nrace: "+this.race+"\nweapon: "+this.weapon+"\nstrength: "+this.strength+"\nwisdom: "+
-				this.wisdom+"\ndexterity: "+this.dexterity+"\nconstitution: "+this.constitution);
+				this.wisdom+"\ndexterity: "+this.dexterity+"\nconstitution: "+this.constitution+"\naccuracy: "+this.accuracy+
+				"\ndefense: "+this.defense+"\nattack: "+this.attack);
 
 	}
 			
