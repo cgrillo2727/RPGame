@@ -15,7 +15,7 @@ public class Client extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml")); //temporary root
+        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml")); //temporary root
 
         //Title
         primaryStage.setTitle("Trogdor the Burninator");

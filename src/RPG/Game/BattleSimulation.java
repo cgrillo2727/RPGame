@@ -29,6 +29,9 @@ public class BattleSimulation {
 	}
 
 
+	// todo commented out a few lines because it breaks the code.
+
+
 	public static void Battle() throws IOException{
 		Character chars[] = new Character[2];
 		//create new scanner instance user_input
@@ -127,7 +130,7 @@ public class BattleSimulation {
 						}
 						//hit opponent
 						System.out.println(chars[f].getName() + " shoots their "+ chars[f].getWeapon() +" at "+ chars[s].getName());
-						chars[s].loseHealth(chars[f].ap);
+						//chars[s].loseHealth(chars[f].ap);
 					}//end ranger turn
 
 					else if (Objects.equals(chars[f].getType(), "wizard")) {
@@ -138,7 +141,7 @@ public class BattleSimulation {
 						}
 						//hit opponent
 						System.out.println(chars[f].getName() + " uses their "+ chars[f].getWeapon() +" to cast a spell on "+ chars[s].getName());
-						chars[s].loseHealth(chars[f].ap);
+						//chars[s].loseHealth(chars[f].ap);
 					}//end sorcerer turn
 
 
