@@ -1,13 +1,16 @@
+// package
 package RPG.Game;
 
+// imports
 import java.util.Objects;
 
 /*
- * @author Ian Gompers, Catherine Grillo
+ * @author Cecil College | CSC 218 
  * @date created Fri, Apr 15, 2016  2:36:34 AM
  * @last modified Fri, Apr 23, 2016
  * @description This class represents a game character.
  */
+
 public class Character {
 	
 	// object data

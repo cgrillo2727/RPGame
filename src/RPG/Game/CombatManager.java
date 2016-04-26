@@ -1,14 +1,18 @@
+// package
 package RPG.Game;
 
+// imports
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+
 /*
- * @author Ian Gompers, Catherine Grillo
+ * @author Cecil College | CSC 218 
  * @date created Fri, Apr 15, 2016  2:36:34 AM
  * @last modified Fri, Apr 23, 2016
  * @description This class facilitates combat.
  */
+
 public class CombatManager {
 
 	static void setStates(Character player) {
@@ -28,15 +32,15 @@ public class CombatManager {
 			player.setAccuracy(0.90);
 		}
 
-		//humans get a racial bonus to defense
+		// humans get a racial bonus to defense
 		if (Objects.equals(player.getRace(), "human")) {
 			player.setDefense(player.getDefense()+player.getRaceBonus());
 		}
-		//lizards get a racial bonus to attack power
+		// lizards get a racial bonus to attack power
 		else if (Objects.equals(player.getRace(), "lizard")) {
 			player.setAttack(player.getAttack()+player.getRaceBonus());
 		}
-		//elves get a racial bonus to accuracy
+		// elves get a racial bonus to accuracy
 		else {
 			player.setAccuracy(player.getAccuracy()+player.getRaceBonus());
 		}
@@ -81,7 +85,7 @@ public class CombatManager {
 	static void attack(Character attacker, Character defender, int choice) {
 		double damage = 0;
 		if (choice==1) {
-			//precision attack
+			// precision attack
 			if (hit(attacker, .1)) {
 				damage = 20*(1+attacker.getAttack());
 				System.out.println(attacker.getName()+" hit with their Precision Attack.\n");
@@ -91,7 +95,7 @@ public class CombatManager {
 			}
 		}
 		else if (choice==2) {
-			//strong attack
+			 // strong attack
 			if (hit(attacker, 0)) {
 				damage = 20*(1.1+attacker.getAttack());
 				System.out.println(attacker.getName()+" hit with their Strong Attack.\n");
@@ -101,7 +105,7 @@ public class CombatManager {
 			}
 		}
 		else {
-			//defend
+			// defend
 			attacker.setDefending(true);
 			attacker.setDefense(attacker.getDefense()+0.05);
 			attacker.setCounter(2);
@@ -148,14 +152,10 @@ public class CombatManager {
 
 			}
 
-		}//end try
+		} //end try
 		finally {
 			user_input.close();
-		}//end finally
+		} //end finally
 	}
-
-
-
-
 
 } // end CombatManager class
