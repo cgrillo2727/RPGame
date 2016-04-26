@@ -81,9 +81,23 @@ public class QuestManager {
     public void sequenceB4() {
         
     }
-    
-    public void sequenceC4() {
-        
+
+    public static void sequenceC4() throws InterruptedException {
+        System.out.println("A as you walk, you approach a cave. You enter the cave");
+        Thread.sleep(2000);
+        System.out.println("The cave is dark....");
+        Thread.sleep(500);
+        System.out.println(".");
+        Thread.sleep(500);
+        System.out.println("..");
+        Thread.sleep(500);
+        System.out.println("...");
+        Thread.sleep(500);
+        System.out.println(".");
+        Thread.sleep(500);
+        System.out.println("..");
+        Thread.sleep(500);
+        System.out.println("...");
     }
     
     // ----
