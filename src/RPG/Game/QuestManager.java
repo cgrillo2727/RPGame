@@ -5,8 +5,6 @@ package RPG.Game;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static RPG.Game.go.io;
-
 
 /*
  * @author Cecil College | CSC 218 
