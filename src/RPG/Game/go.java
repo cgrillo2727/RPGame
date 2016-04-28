@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.StringJoiner;
 
 /*
- * Created by Shawn-L on 4/25/2016.
+ * author Cecil College | CSC 218
  */
 public class go {
 
@@ -15,7 +15,7 @@ public class go {
 
     public static void main(String args[])throws InterruptedException{
 
-        String gameWindowTitle = "[ RPG Game ] The Trogdor Adventures by Cecil College Students ( CSC 201 Computer Science II )";
+        String gameWindowTitle = "[ RPG Game ] The Trogdor Adventures by Cecil College Students ( CSC 218 Computer Science II )";
 
         Console console = System.console();
         String os = System.getProperty("os.name", "generic").toLowerCase();
