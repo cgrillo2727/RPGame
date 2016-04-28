@@ -15,7 +15,10 @@ public class go {
 
     public static void main(String args[])throws InterruptedException{
 
+        String gameWindowTitle = "[ RPG Game ] The Trogdor Adventures by Cecil College Students ( CSC 201 Computer Science II )";
+
         Console console = System.console();
+        String os = System.getProperty("os.name", "generic").toLowerCase();
 
         if( Character.class.getResource("Character.class").toString().contains("jar") ) {
             isJar = true;
@@ -23,10 +26,14 @@ public class go {
 
         if(console == null && isJar) {
             try {
-                Runtime rt = Runtime.getRuntime();
-                //String game_jar_dir = "C:\\Users\\Dan\\IdeaProjects\\RPGfinalProject\\out\\artifacts\\RPG_Game_jar";
-                String game_jar_dir = System.getProperty("user.dir");
-                rt.exec("cmd.exe /c cd \"" + game_jar_dir + "\" & start \"<RPG Game Final Project>\" /REALTIME cmd.exe /k \"java -cp .;RPG-Game.jar; RPG.Game.go \"");
+                if(os.contains("win")) { // we are running windows
+                    Runtime rt = Runtime.getRuntime();
+                    //String game_jar_dir = "C:\\Users\\Dan\\IdeaProjects\\RPGfinalProject\\out\\artifacts\\RPG_Game_jar";
+                    String game_jar_dir = System.getProperty("user.dir");
+                    rt.exec("cmd.exe /c cd \"" + game_jar_dir + "\" & start \" " + gameWindowTitle + "\" cmd.exe /k \"java -cp .;RPG-Game.jar; RPG.Game.go \"");
+                } else { // assume we are running linux
+
+                }
 
             } catch (IOException ex) {
                 ex.printStackTrace();
