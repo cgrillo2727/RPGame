@@ -1,3 +1,5 @@
+package RPG.Game;
+
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -47,14 +49,17 @@ public class CombatManager {
 		damage = damage*(1-player.getDefense());
 		player.setCurrentHealth(player.getCurrentHealth()-damage);
 		
-		System.out.printf(player.getName()+" took %.2f points of damage.\n",damage);
+		System.out.println(player.getName()+"Took damage! \n " +
+                player.getName()+" Took "+ damage);
+
+
 		
 		if (player.getCurrentHealth() <=0) {
 			System.out.println(player.getName()+" has died");
 			player.setCurrentHealth(0);
 		}
 		else {
-			System.out.printf(player.getName()+" has %.2f health left.\n\n",player.getCurrentHealth());
+			System.out.println(player.getName()+ " has %.2f health left.\n\n" + player.getCurrentHealth());
 		}
 	}
 	
