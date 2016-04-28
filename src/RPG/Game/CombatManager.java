@@ -59,7 +59,7 @@ public class CombatManager {
 			player.setCurrentHealth(0);
 		}
 		else {
-			System.out.println(player.getName()+ " has %.2f health left.\n\n" + player.getCurrentHealth());
+			System.out.println(player.getName()+ " has %.2f health left.\n\n" +   player.getCurrentHealth());
 		}
 	}
 	
