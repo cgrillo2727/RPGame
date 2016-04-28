@@ -1,6 +1,6 @@
 package RPG.Game;
 import java.util.Scanner;
-/**
+/*
  * Created by Shawn-L on 4/25/2016.
  */
 public class go {
