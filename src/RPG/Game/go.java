@@ -28,7 +28,6 @@ public class go {
             try {
                 if(os.contains("win")) { // we are running windows
                     Runtime rt = Runtime.getRuntime();
-
                     String game_jar_dir = System.getProperty("user.dir");
                     rt.exec("cmd.exe /c cd \"" + game_jar_dir + "\" & start \" " + gameWindowTitle + "\" cmd.exe /k \"java -cp .;RPG-Game.jar; RPG.Game.go \"");
                 } else { // assume we are running linux
@@ -40,13 +39,13 @@ public class go {
             }
         } else { // we are in a windows cmd
 
+            // start the game
+
             QuestManager.beginCredits();
             CreateCharacter.createCharacter();
             QuestManager.sequenceA1();
             QuestManager.sequenceC4();
 
-            System.out.println("it wasent loaded from the console!");
-            System.out.println(console);
         }
 
 
