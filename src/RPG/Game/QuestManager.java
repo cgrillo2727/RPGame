@@ -5,6 +5,9 @@ package RPG.Game;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static RPG.Game.go.io;
+
+
 /*
  * @author Cecil College | CSC 218 
  * @date created Fri, Apr 15, 2016  2:36:34 AM
@@ -15,7 +18,7 @@ import java.util.Scanner;
 public class QuestManager {
     
     // scanner init
-    Scanner io = new Scanner(System.in);
+    static Scanner io = go.getScanner();
 
     public static void beginCredits()throws InterruptedException{
         System.out.println("Welcome to...");
@@ -61,7 +64,7 @@ public class QuestManager {
     */
 
     public static void sequenceA1(){
-        Scanner io = new Scanner(System.in);
+
         System.out.println("As you exit the store you hear a faint scream in the distance");
         System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. (1: Yes, 2: No)");
 

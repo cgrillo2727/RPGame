@@ -3,10 +3,10 @@ package RPG.Game;
 import java.util.Objects;
 import java.util.Scanner;
 
+
 public class CreateCharacter {
 	public static Character createCharacter()throws InterruptedException {
-	    // scanner init
-	    Scanner io = new Scanner(System.in);
+        Scanner io = go.getScanner();
 		String name;
 		String EricLake="Eric Lake";
 	    // welcoming message and get character name
@@ -71,8 +71,7 @@ public class CreateCharacter {
 	    }
 	    
 	    Character player = new Character(type, name, race, constitution, strength, dexterity, wisdom);
-	    
-	    io.close();
+
 	    
 	    return player;
 	}
