@@ -4,7 +4,7 @@ package RPG.Game;
  * Created by Shawn-L on 4/28/2016.
  */
 public class trogdor  {
-    public static Character createTrogdor(){
+    public static NPC createTrogdor(){
 
         String name="Trogdor";
         String type="wizard";
@@ -14,10 +14,7 @@ public class trogdor  {
         int dexterity = 5;
         int wisdom = 10;
 
-
-
-        Character Trogdor = new Character(type, name, race, constitution, strength, dexterity, wisdom);
-        return Trogdor;
+        return new NPC(type, name, race, constitution, strength, dexterity, wisdom);
     }
 
 }
