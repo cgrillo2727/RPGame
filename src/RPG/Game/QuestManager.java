@@ -2,6 +2,7 @@
 package RPG.Game;
 
 // imports
+import java.io.IOException;
 import java.util.Scanner;
 
 /*
@@ -59,18 +60,26 @@ public class QuestManager {
     }
     */
 
-    public static void sequenceA1() {
-
-        String sequenceAMessage1 = "As you exit the store you hear a faint scream in the distance";
-        String sequenceAMessage2 = "The scream grows louder and louder until a woman appears from the woods, she pleads for your help. (1: Yes, 2: No)";
-        System.out.println(sequenceAMessage1 +" \n" + sequenceAMessage2);
+    public static void sequenceA1(){
         Scanner io = new Scanner(System.in);
-        int decision = io.nextInt();
-        if(decision == 1) {
+        System.out.println("As you exit the store you hear a faint scream in the distance");
+        System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. (1: Yes, 2: No)");
+
+
+        int decision;
+        decision = Integer.parseInt(io.next());
+        switch (decision){
+            case 1: sequenceB1();
+                break;
+            case 2: sequenceB2();
+                break;
+        }
+
+        /*if(decision == 1) {
             sequenceB1();
         } else {
             sequenceB2();
-        }
+        }*/
     }
     public static void sequenceB1() {
         String sequenceB1Message1 = "My child stolen by Trogdor! You must help me get him back!";

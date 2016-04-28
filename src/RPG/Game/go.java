@@ -8,7 +8,7 @@ public class go {
     public static void main(String args[])throws InterruptedException{
         QuestManager.beginCredits();
         CreateCharacter.createCharacter();
-        QuestManager.startQuest();
+        QuestManager.sequenceA1();
         QuestManager.sequenceC4();
     }
 }
