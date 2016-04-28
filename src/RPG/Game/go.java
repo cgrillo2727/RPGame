@@ -28,7 +28,7 @@ public class go {
             try {
                 if(os.contains("win")) { // we are running windows
                     Runtime rt = Runtime.getRuntime();
-                    //String game_jar_dir = "C:\\Users\\Dan\\IdeaProjects\\RPGfinalProject\\out\\artifacts\\RPG_Game_jar";
+
                     String game_jar_dir = System.getProperty("user.dir");
                     rt.exec("cmd.exe /c cd \"" + game_jar_dir + "\" & start \" " + gameWindowTitle + "\" cmd.exe /k \"java -cp .;RPG-Game.jar; RPG.Game.go \"");
                 } else { // assume we are running linux
