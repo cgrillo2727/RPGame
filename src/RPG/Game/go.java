@@ -1,6 +1,8 @@
 package RPG.Game;
 import java.io.Console;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URLDecoder;
 import java.util.Scanner;
 import java.util.StringJoiner;
 
@@ -13,7 +15,7 @@ public class go {
     static final Scanner io = new Scanner(System.in);
     static boolean isJar = false;
 
-    public static void main(String args[])throws InterruptedException{
+    public static void main(String args[]) throws InterruptedException, URISyntaxException {
 
         String gameWindowTitle = "[ RPG Game ] The Trogdor Adventures by Cecil College Students ( CSC 218 Computer Science II )";
 
@@ -31,12 +33,18 @@ public class go {
 
                 if(os.contains("win")) { // we are running windows
                     rt.exec("cmd.exe /c cd \"" + game_jar_dir + "\" & start \" " + gameWindowTitle + "\" cmd.exe /k \"java -cp .;RPG-Game.jar; RPG.Game.go \"");
-                } else { // assume we are running linux
-                   // new ProcessBuilder("xterm", "-e", game_jar_dir).start();
+                } else if (os.contains("linux")) { // we are running linux
 
-                    //-c \"cd ~/Desktop
-                   String[] argus = new String[] {"/bin/bash", "-c","cd \""+ game_jar_dir + "\" " + " && ", "java", "-cp", ".:RPG-Game.jar: RPG.Game.go"};
-                    Process pr = new ProcessBuilder(argus).start();
+                    String game_jar_dir2 = Character.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+                    game_jar_dir = URLDecoder.decode(game_jar_dir2, "UTF-8");
+                    game_jar_dir=game_jar_dir.replace("/RPGame.jar", "");
+
+                    String cmd[] = {"gnome-terminal", "-x", "bash", "-c", "cd " + game_jar_dir + " ; java -cp .:RPGame.jar: RPG.Game.go" };
+
+                    Process pr = new ProcessBuilder(cmd).start();
+
+
+
 
 
                 }
