@@ -26,11 +26,18 @@ public class go {
 
         if(console == null && isJar) {
             try {
+                Runtime rt = Runtime.getRuntime();
+                String game_jar_dir = System.getProperty("user.dir");
+
                 if(os.contains("win")) { // we are running windows
-                    Runtime rt = Runtime.getRuntime();
-                    String game_jar_dir = System.getProperty("user.dir");
                     rt.exec("cmd.exe /c cd \"" + game_jar_dir + "\" & start \" " + gameWindowTitle + "\" cmd.exe /k \"java -cp .;RPG-Game.jar; RPG.Game.go \"");
                 } else { // assume we are running linux
+                   // new ProcessBuilder("xterm", "-e", game_jar_dir).start();
+
+                    //-c \"cd ~/Desktop
+                   String[] argus = new String[] {"/bin/bash", "-c","cd \""+ game_jar_dir + "\" " + " && ", "java", "-cp", ".:RPG-Game.jar: RPG.Game.go"};
+                    Process pr = new ProcessBuilder(argus).start();
+
 
                 }
 
