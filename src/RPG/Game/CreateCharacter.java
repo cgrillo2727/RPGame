@@ -1,79 +1,98 @@
-package RPG.Game;
-
 import java.util.Objects;
 import java.util.Scanner;
 
 
-public class CreateCharacter {
-	public static Character createCharacter()throws InterruptedException {
-        Scanner io = go.getScanner();
-		String name;
-		String EricLake="Eric Lake";
-	    // welcoming message and get character name
-	    System.out.println( "Shopkeeper: Welcome to my store! Please tell me your name");
-		name = io.next();
-		System.out.println("Shopkeeper: Ahh, " + name + ", I would have been able to guess it had i been my old self.");
-		Thread.sleep(2300);
-	    System.out.println("Shopkeeper: This old magic is failing me, ever since...");
 
-		Thread.sleep(1000);
-		System.out.println(".");
-		Thread.sleep(1000);
-		System.out.println("..");
-		Thread.sleep(1000);
-		System.out.println("...");
-		Thread.sleep(2000);
+public class CreateCharacter {
+	
+	public static int testStat(int stat) {
+		Scanner io = new Scanner(System.in);
+		while (stat>20) {
+			System.out.println("Please enter a number below 20.");
+			try {
+			stat = Integer.parseInt(io.next());
+			} catch (NumberFormatException e) {
+				System.out.println("Please only enter numbers.");
+			}
+		}
+		io.close();
+		return stat;
+	}//end testStat method
+	
+	public static Character createCharacter() {
+	    // scanner init
+	    Scanner io = new Scanner(System.in);
+		
+	    // welcoming message and get character name
+	    String characterCreationMessage1 = "Welcome to my store! What is your name? ";
+	    System.out.print(characterCreationMessage1); 
+	    String name = io.next();
+	    
 	    //get race
-	    System.out.println("My apologies, but the great beast Trogdor has blinded me.");
-		Thread.sleep(1000);
-		System.out.println("Could you tell me what you are? (Enter human, lizard, elf)");
+	    System.out.println("My apologies, but the great beast Trogdor has blinded me. Could you tell me what you are? (Enter human, lizard, elf)");
 	    String race = io.next().toLowerCase();
 	    //check that race is an accepted value
 	    while (!Objects.equals(race, "lizard") && !Objects.equals(race, "human") && !Objects.equals(race, "elf")){
 			System.out.print("Oops, I didn't catch that. Please enter 'lizard', 'human', or 'elf'.");
-			race = io.next();
+			race = io.next().toLowerCase();
 	    }
 	    
 	    //get type(class)
 	    System.out.println("Do you battle with a sword, a bow, or a staff? (Enter warrior, ranger, wizard)");
-	    String type = io.next();
+	    String type = io.next().toLowerCase();
 	    //check that type is an accepted value
 	    while (!Objects.equals(type, "warrior") && !Objects.equals(type, "ranger") && !Objects.equals(type, "wizard")){
-			System.out.print("Oops, I didn't catch that. Please enter \"warrior\", \"ranger\', or \"wizard\".");
-			type = io.next();
+			System.out.print("Oops, I didn't catch that. Please enter 'warrior', 'ranger', or 'wizard'.");
+			type = io.next().toLowerCase();
 	    }
 	    
 	    //get base stats
-	    int strength, dexterity, wisdom, constitution = 20;
-	    int choice = 0;
-	    while (true) {
-	        System.out.println("Are you 1. strong, 2. dexterous, 3. or wise? (hint: pick a number to make a selection, then hit the ENTER key)");
-	        choice = Integer.parseInt(io.next());
-	        if (choice==1) {
-	        	strength = 20;
-	        	dexterity = 10;
-	        	wisdom = 15;
-	        	break;
-	        }
-	        else if (choice==2) {
-	        	strength = 15;
-	        	dexterity = 20;
-	        	wisdom = 10;
-	        	break;
-	        }
-	        else if (choice==3) {
-	        	strength = 10;
-	        	dexterity = 15;
-	        	wisdom = 20;
-	        	break;
-	        }
-	        else {System.out.println("Oops, I didn't catch that. Please enter '1', '2', or '3'.");}
+	    int strength = 0, dexterity = 0, wisdom = 0, constitution = 0;
+	    System.out.println("Distribute 60 points among four attributes. No attribute can be greater than 20."
+	    		+ "\n\tConstitution determines your health."
+				+ "\n\tStrength determines your melee attack power.\n\tDexterity determines your ranged attack power."
+				+ "\n\tWisdom determines your magical attack power.");
+	    while ((constitution+strength+dexterity+wisdom) != 60){
+		    try {
+				System.out.print("Set your constitution: ");
+				constitution = Integer.parseInt(io.next());
+				constitution = testStat(constitution);
+				
+				System.out.print("Set your strength: ");
+				strength = Integer.parseInt(io.next());
+				strength = testStat(strength);
+				
+				System.out.print("Set your dexterity: ");
+				dexterity = Integer.parseInt(io.next());
+				dexterity = testStat(dexterity);
+				
+				System.out.print("Set your wisdom: ");
+				wisdom = Integer.parseInt(io.next());
+				wisdom = testStat(wisdom);
+				
+			} catch (NumberFormatException e) {
+				System.out.println("Oops, you must only enter numbers!");
+			}
 	    }
 	    
 	    Character player = new Character(type, name, race, constitution, strength, dexterity, wisdom);
-
+	    
+	    io.close();
 	    
 	    return player;
+	}//end createCharacter method
+	
+	
+	public CreateCharacter() {
+		
 	}
-
-}
+	
+	
+	
+	/*//test createCharacter class
+	public static void main(String args[]) {
+		Character player = createCharacter();
+		player.printchar();
+	}
+	*/
+}//end CreateCharacter class
