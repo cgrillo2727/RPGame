@@ -14,12 +14,9 @@ public class Character {
 	
 	// object data
 	
-	//name of character
-	private String name = new String();
-	//type is character class: warrior, ranger, wizard
-	private String type = new String();
-	//races: human, lizard, elf
-	private String race = new String();
+	//character name, type: warrior, ranger, or wizard
+	//race:human, lizard, elf
+	private String name, type, race;
 	//race bonus gives some attribute bonus based on race
 	private double raceBonus = 0.05;
 
@@ -29,19 +26,12 @@ public class Character {
 	private double maxHealth = (10+constitution)*15;
 	//currentHealth starts out as maxHealth
 	private double currentHealth = maxHealth;
-	//determines warrior attack
-	private int strength;
-	//determines ranger attack
-	private int dexterity;
-	//determines wizard attack;
-	private int wisdom;
-	//
-	private double accuracy;
-	private double defense;
-	private double attack;
+	//damage variables
+	private int strength, dexterity, wisdom;
+	private double accuracy, defense, attack;
 	
 	//weapon type
-	private String weapon = new String();
+	private String weapon;
 	//weapon bonus based on advancement
 	private double weaponBonus = 0.0;
 
@@ -53,13 +43,13 @@ public class Character {
 
     // object constructor
 	public Character(String type, String name, String race, int constitution, int strength, int dexterity, int wisdom) {
-		this.setType(type);
-		this.setName(name);
-		this.setRace(race);
-		this.setConstitution(constitution);
-		this.setStrength(strength);
-		this.setDexterity(dexterity);
-		this.setWisdom(wisdom);
+		this.type = type;
+		this.name = name;
+		this.race = race;
+		this.constitution = constitution;
+		this.strength = strength;
+		this.dexterity = dexterity;
+		this.wisdom = wisdom;
 	}
 
 
