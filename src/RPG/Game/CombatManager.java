@@ -45,21 +45,23 @@ public class CombatManager {
 	}
 	
 	//reduce character health
-	static void loseHealth(Character player, double damage) {
+	static void loseHealth(Character player, double damage) throws InterruptedException{
 		damage = damage*(1-player.getDefense());
 		player.setCurrentHealth(player.getCurrentHealth()-damage);
 		
-		System.out.println(player.getName()+"Took damage! \n " +
-                player.getName()+" Took "+ damage);
+        System.out.printf(player.getName()+" Took %.2f damage.\n", damage);
+		Thread.sleep(2000);
 
 
 		
 		if (player.getCurrentHealth() <=0) {
 			System.out.println(player.getName()+" has died");
+			Thread.sleep(1600);
 			player.setCurrentHealth(0);
 		}
 		else {
-			System.out.println(player.getName()+ " has %.2f health left.\n\n" +   player.getCurrentHealth());
+			System.out.printf(player.getName()+ " has %.2f health left.\n\n",player.getCurrentHealth());
+			Thread.sleep(2000);
 		}
 	}
 	
@@ -71,27 +73,30 @@ public class CombatManager {
 		return hits;
 	}
 	
-	static void reduceCounter(Character player) {
+	static void reduceCounter(Character player) throws InterruptedException{
 		if (player.getDefending()) {
 			player.setCounter(player.getCounter()-1);
 			if (player.getCounter()==0) {
 				player.setDefending(false);
 				player.setDefense(player.getDefense()-0.05);
 				System.out.println(player.getName()+" has lost their defense bonus.");
+				Thread.sleep(1600);
 			}
 		}
 	}
 	
-	static void attack(Character attacker, Character defender, int choice) {
+	static void attack(Character attacker, Character defender, int choice) throws InterruptedException{
 		double damage = 0;
 		if (choice==1) {
 			//precision attack
 			if (hit(attacker, .1)) {
 				damage = 20*(1+attacker.getAttack());
 				System.out.println(attacker.getName()+" hit with their Precision Attack.\n");
+				Thread.sleep(2000);
 			}
 			else {
 				System.out.println(attacker.getName()+" missed with their Precision Attack.\n");
+				Thread.sleep(2000);
 			}
 		}
 		else if (choice==2) {
@@ -99,9 +104,11 @@ public class CombatManager {
 			if (hit(attacker, 0)) {
 				damage = 20*(1.1+attacker.getAttack());
 				System.out.println(attacker.getName()+" hit with their Strong Attack.\n");
+				Thread.sleep(2000);
 			}
 			else {
 				System.out.println(attacker.getName()+" missed with their Strong Attack.\n");
+				Thread.sleep(2000);
 			}
 		}
 		else {
@@ -110,35 +117,53 @@ public class CombatManager {
 			attacker.setDefense(attacker.getDefense()+0.1);
 			attacker.setCounter(2);	
 			System.out.println(attacker.getName()+" is Defending.\n");
+			Thread.sleep(1600);
 		}
 		if (damage>0) {loseHealth(defender,damage);}
 	}
 	
-	static void runCombat(Character player, Character npc) {
+	static void runCombat(Character player, Character npc) throws InterruptedException{
 
-		Scanner user_input = new Scanner(System.in);
-		try {
-			System.out.println(player.getName()+" is now fighting "+npc.getName());
+		Scanner io = go.getScanner();
+			System.out.println(player.getName()+" is now fighting "+npc.getName()+".");
+			Thread.sleep(1000);
 			while (true) {
 				//player's turn
-				System.out.println("It is "+player.getName()+"'s turn.");
+				System.out.println("It is "+player.getName()+"'s turn.\n");
+				Thread.sleep(1000);
 
 				reduceCounter(player);
 				
-				System.out.println("Select one:\n1. Precision Attack: normal damage, high accuracy"
-						+ "\n2. Strong Attack: high damage, normal accuracy"
-						+ "\n3. Defend: Increase defense for 2 rounds");
-				int choice = Integer.parseInt(user_input.next());
+				int choice = 0;
+				
+				while(choice<1 || choice >3) {
+					System.out.println("Select an action:");
+					Thread.sleep(1000);
+					System.out.println("1. Precision Attack: normal damage, high accuracy");
+					Thread.sleep(2000);
+					System.out.println("2. Strong Attack: high damage, normal accuracy");
+					Thread.sleep(2000);
+					System.out.println("3. Defend: Increase defense for 2 rounds");
+					try {
+						choice = Integer.parseInt(io.next());
+					} catch (NumberFormatException e) {
+						System.out.println("Oops, I didn't understand that. Please only enter a number.");
+						Thread.sleep(2000);
+					}
+				}
+				
 				attack(player, npc, choice);
 				
 				if (npc.getCurrentHealth()==0) {
 					System.out.println("Yay! "+player.getName()+" defeated "+npc.getName()+"!");
+					Thread.sleep(1600);
 					break;
 				}
 				
 				
 				//npc's turn
 				System.out.println("It is "+npc.getName()+"'s turn.");
+				Thread.sleep(1600);
 
 				reduceCounter(npc);
 				if (npc.getDefending()) {choice = ThreadLocalRandom.current().nextInt(1, 3);}
@@ -147,18 +172,15 @@ public class CombatManager {
 				
 				if (player.getCurrentHealth()==0) {
 					System.out.println("Oh no! "+player.getName()+" lost to "+npc.getName()+"!");
+					Thread.sleep(1600);
 					break;
 				}
 				
 			}
-			
-		}//end try
-		finally {
-			user_input.close();
-		}//end finally
+
 	}
 	
-	static void initiateCombatSession(Character player, Character npc) {
+	static void initiateCombatSession(Character player, Character npc) throws InterruptedException{
 		setStates(player);
 		setStates(npc);
 		runCombat(player,npc);

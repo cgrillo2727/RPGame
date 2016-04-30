@@ -1,8 +1,6 @@
 // package
 package RPG.Game;
 
-// imports
-import java.io.IOException;
 import java.util.Scanner;
 
 
