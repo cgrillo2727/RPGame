@@ -21,7 +21,7 @@ public class CreateCharacter {
 	
 	public static Character createCharacter() {
 	    // scanner init
-	    Scanner io = new Scanner(System.in);
+	    Scanner io = go.getScanner();
 		
 	    // welcoming message and get character name
 	    String characterCreationMessage1 = "Welcome to my store! What is your name? ";
@@ -76,8 +76,6 @@ public class CreateCharacter {
 	    }
 	    
 	    Character player = new Character(type, name, race, constitution, strength, dexterity, wisdom);
-	    
-	    io.close();
 	    
 	    return player;
 	}//end createCharacter method
