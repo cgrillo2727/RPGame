@@ -1,3 +1,5 @@
+package RPG.Game;
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -6,7 +8,7 @@ import java.util.Scanner;
 public class CreateCharacter {
 	
 	public static int testStat(int stat) {
-		Scanner io = new Scanner(System.in);
+		Scanner io = go.getScanner();
 		while (stat>20) {
 			System.out.println("Please enter a number below 20.");
 			try {
@@ -15,7 +17,6 @@ public class CreateCharacter {
 				System.out.println("Please only enter numbers.");
 			}
 		}
-		io.close();
 		return stat;
 	}//end testStat method
 	

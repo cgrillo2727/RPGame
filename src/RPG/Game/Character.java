@@ -1,4 +1,4 @@
-
+package RPG.Game;
 
 // imports
 import java.util.Objects;
