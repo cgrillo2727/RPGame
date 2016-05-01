@@ -97,11 +97,6 @@ public class go {
 
                 }
             }
-            // start the game
-           // QuestManager.beginCredits();
-            //CreateCharacter.createCharacter();
-           // QuestManager.sequenceA1();
-           // QuestManager.sequenceC4();
 
         }
 
