@@ -35,6 +35,7 @@ public class CreateCharacter {
 	}//end testStat method
 	
 	
+	//primary method to make character
 	public static Character createCharacter() throws InterruptedException{
 	    // scanner init
 	    Scanner io = go.getScanner();
@@ -103,12 +104,6 @@ public class CreateCharacter {
 	    
 	    return player;
 	}//end createCharacter method
-	
-	
-	public CreateCharacter() {
-		
-	}
-	
 	
 	
 	/*//test createCharacter class

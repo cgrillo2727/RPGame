@@ -231,13 +231,12 @@ public class CombatManager {
 
 	}
 	
-	//main method that calls all necessary combat methods.
-	static void initiateCombatSession(Character player, Character npc) throws InterruptedException{
+	//Constructor that calls all necessary combat methods.
+	public static void combatManager(Character player, Character npc) throws InterruptedException{
 		setStates(player);
 		setStates(npc);
 		runCombat(player,npc);
 	}
-
 	
 
 	
