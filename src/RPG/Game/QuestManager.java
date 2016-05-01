@@ -7,7 +7,7 @@ import java.util.Scanner;
 /*
  * @author Cecil College | CSC 218 
  * @date created Fri, Apr 15, 2016  2:36:34 AM
- * @last modified Mon Apr 25 20:08:59 EDT 2016
+ * @last modified Mon May 01 20:08:59 EDT 2016
  * @description This class facilitates the quest
  */
 
@@ -65,6 +65,7 @@ public class QuestManager {
     public static void sequenceA1() throws    InterruptedException{
 
         System.out.println("As you exit the store you hear a faint scream in the distance");
+        Thread.sleep(800);
         System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. (1: Yes, 2: No)");
 
 
@@ -84,24 +85,24 @@ public class QuestManager {
         }*/
     }
     public static void sequenceB1() throws InterruptedException{
-        String sequenceB1Message1 = "My child stolen by Trogdor! You must help me get him back!";
-        String sequenceB1Message2 = "He lives in the cave on the far side of the lake, deep beneath the earth";
+        String sequenceB1Message1 = "My child was stolen by Trogdor! You must help me get him back!";
+        String sequenceB1Message2 = "Trogdor lives in the cave on the far side of the lake, deep beneath the earth";
         String sequenceB1Message3 = "I cannot pay you, but please, take this map. It leads to a very expensive weapon.";
-        String sequenceB1Message4 = "The only weapon that can destroy Trogdor! Maybe some day we will all live in peace";
+        String sequenceB1Message4 = "It is the only weapon that can destroy Trogdor! Maybe some day we will all live in peace";
         String sequenceB1Message5 = "You take the map, accepting the quest and starting your journey...";
         String sequenceB1Message6 = "Many days of walking leads you towards ";
         System.out.println(sequenceB1Message1);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         System.out.println(sequenceB1Message2);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         System.out.println(sequenceB1Message3);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         System.out.println(sequenceB1Message4);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         System.out.println(sequenceB1Message5);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         System.out.println(sequenceB1Message6);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
 
     }
     
