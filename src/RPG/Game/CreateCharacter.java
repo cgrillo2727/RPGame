@@ -4,23 +4,38 @@ import java.util.Objects;
 import java.util.Scanner;
 
 
-
 public class CreateCharacter {
 	
-	public static int testStat(int stat) {
+	//check user input to make sure it is of right type and within range
+	public static int testStat(String input) throws InterruptedException{
 		Scanner io = go.getScanner();
+		//initialize stat so that , if it is not modified, it will enter the while loop
+		int stat = 21;
+		
+		//try to parse input. If it fails, catch error and notify user.
+		try {
+			stat = Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			System.out.println("You must only enter numbers!");
+			Thread.sleep(2000);
+		}
+		//if input could not be parsed or was too large, get new input.
 		while (stat>20) {
+			//repeat instructions in case user did not understand previously
 			System.out.println("Please enter a number below 20.");
 			try {
-			stat = Integer.parseInt(io.next());
+				stat = Integer.parseInt(io.next());
 			} catch (NumberFormatException e) {
-				System.out.println("Please only enter numbers.");
+				System.out.println("You must only enter numbers!");
+				Thread.sleep(2000);
 			}
 		}
+		//return checked stat
 		return stat;
 	}//end testStat method
 	
-	public static Character createCharacter() {
+	
+	public static Character createCharacter() throws InterruptedException{
 	    // scanner init
 	    Scanner io = go.getScanner();
 		
@@ -48,32 +63,40 @@ public class CreateCharacter {
 	    }
 	    
 	    //get base stats
-	    int strength = 0, dexterity = 0, wisdom = 0, constitution = 0;
-	    System.out.println("Distribute 60 points among four attributes. No attribute can be greater than 20."
-	    		+ "\n\tConstitution determines your health."
-				+ "\n\tStrength determines your melee attack power.\n\tDexterity determines your ranged attack power."
-				+ "\n\tWisdom determines your magical attack power.");
-	    while ((constitution+strength+dexterity+wisdom) != 60){
-		    try {
-				System.out.print("Set your constitution: ");
-				constitution = Integer.parseInt(io.next());
-				constitution = testStat(constitution);
-				
-				System.out.print("Set your strength: ");
-				strength = Integer.parseInt(io.next());
-				strength = testStat(strength);
-				
-				System.out.print("Set your dexterity: ");
-				dexterity = Integer.parseInt(io.next());
-				dexterity = testStat(dexterity);
-				
-				System.out.print("Set your wisdom: ");
-				wisdom = Integer.parseInt(io.next());
-				wisdom = testStat(wisdom);
-				
-			} catch (NumberFormatException e) {
-				System.out.println("Oops, you must only enter numbers!");
-			}
+	    //initialize string variables to hold user input before it is parsed
+	    String str, dex, wis, con;
+	    //initialize int variables so that the while loop runs at beginning.
+	    int strength = 21, dexterity = 21, wisdom = 21, constitution = 21;
+	    //print out instructions to user
+	    System.out.println("Distribute 60 points among four attributes.");
+	    Thread.sleep(2000);
+	    System.out.println("\tConstitution determines your health.");
+	    Thread.sleep(2000);
+		System.out.println("\tStrength determines your melee attack power.");
+		Thread.sleep(2000);
+		System.out.println("\tDexterity determines your ranged attack power.");
+		Thread.sleep(2000);
+		System.out.println("\tWisdom determines your magical attack power.");
+		Thread.sleep(2000);
+	    //while stats add up to greater than 60, repeat stat gathering
+	    while ((constitution+strength+dexterity+wisdom) > 60){
+	    	System.out.println("No attribute can have more than 20 points.");
+	    	Thread.sleep(2000);
+			System.out.print("Set your constitution: ");
+			con = io.next();
+			constitution = testStat(con);
+			
+			System.out.print("Set your strength: ");
+			str = io.next();
+			strength = testStat(str);
+			
+			System.out.print("Set your dexterity: ");
+			dex = io.next();
+			dexterity = testStat(dex);
+			
+			System.out.print("Set your wisdom: ");
+			wis = io.next();
+			wisdom = testStat(wis);
 	    }
 	    
 	    Character player = new Character(type, name, race, constitution, strength, dexterity, wisdom);
@@ -89,9 +112,9 @@ public class CreateCharacter {
 	
 	
 	/*//test createCharacter class
-	public static void main(String args[]) {
+	public static void main(String args[]) throws InterruptedException{
 		Character player = createCharacter();
 		player.printchar();
-	}
-	*/
+	}*/
+	
 }//end CreateCharacter class
