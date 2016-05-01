@@ -179,13 +179,13 @@ public class Character {
 	//set weapon type based on character type
 	void setWeapon() {
 		if (Objects.equals(this.type,"warrior")) {
-			weapon = "battle axe";
+			weapon = "Sword of the Lake";
 		}
 		else if (Objects.equals(this.type,"wizard")) {
-			weapon = "staff";
+			weapon = "Staff of the Lake";
 		}
 		else {
-			weapon = "longbow";
+			weapon = "Bow of the Lake";
 		}
 	}
 	
