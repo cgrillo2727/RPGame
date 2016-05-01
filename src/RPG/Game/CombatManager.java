@@ -15,20 +15,20 @@ public class CombatManager {
 	static void setStates(Character player) {
 		//warriors have high defense, medium attack, and low accuracy
 		if (Objects.equals(player.getType(), "warrior")) {
-			player.setDefense(0.1+player.getConstitution()/100.0);
-			player.setAttack(0.05+player.getWeaponBonus()+player.getStrength()/100.0);			
+			player.setDefense(0.25+player.getConstitution()/100.0);
+			player.setAttack(0.4+player.getWeaponBonus()+player.getStrength()/100.0);			
 			player.setAccuracy(0.80);
 		}
 		//wizards have have low defense, high attack, and medium accuracy
 		else if (Objects.equals(player.getType(), "wizard")) {
 			player.setDefense(player.getConstitution()/100.0);
-			player.setAttack(0.1+player.getWeaponBonus()+player.getWisdom()/100.0);
+			player.setAttack(0.6+player.getWeaponBonus()+player.getWisdom()/100.0);
 			player.setAccuracy(0.85);
 		}
 		//rangers have medium defense, low attack, and high accuracy
 		else {
 			player.setDefense(0.05+player.getConstitution()/100.0);
-			player.setAttack(player.getWeaponBonus()+player.getDexterity()/100.0);
+			player.setAttack(0.5+player.getWeaponBonus()+player.getDexterity()/100.0);
 			player.setAccuracy(0.90);
 		}
 		
