@@ -22,8 +22,8 @@ public class Character {
 
 	//influence maxHealth of character
 	private int constitution;
-	//maxHealth relies on consitution. *15 is just to make it so the fight lasts long enough
-	private double maxHealth = (10+constitution)*15;
+	//maxHealth relies on constitution.
+	private double maxHealth = (10+constitution)*10;
 	//currentHealth starts out as maxHealth
 	private double currentHealth = maxHealth;
 	//damage variables
