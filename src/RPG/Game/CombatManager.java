@@ -54,7 +54,7 @@ public class CombatManager {
 		//reduce health
 		player.setCurrentHealth(player.getCurrentHealth()-damage);
 		//print damage taken
-        System.out.printf(player.getName()+" Took %.2f damage.\n", damage);
+        	System.out.println(player.getName()+" Took "+(int)damage+" damage.");
 		Thread.sleep(2000);
 		
 		//if character's health is reduced to 0 or below
@@ -67,7 +67,7 @@ public class CombatManager {
 		}
 		//else print remaining health
 		else {
-			System.out.printf(player.getName()+ " has %.2f health left.\n\n",player.getCurrentHealth());
+			System.out.println(player.getName()+ " has "+(int)player.getCurrentHealth()+" health left.\n");
 			Thread.sleep(2000);
 		}
 	}
