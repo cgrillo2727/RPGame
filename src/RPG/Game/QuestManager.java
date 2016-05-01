@@ -17,9 +17,23 @@ public class QuestManager {
     static Scanner io = go.getScanner();
 
     public static void beginCredits()throws InterruptedException{
-        System.out.println("Welcome to...");
+        String intro = "Welcome to...";
+        for (int index = 0; index < intro.length();
+             index++) {
+            char aChar = intro.charAt(index);
+            System.out.print(aChar);
+            Thread.sleep(200);
+        }
+        System.out.println(" ");
         Thread.sleep(800);
-        System.out.println("The Adventures of Eric Lake!");
+        String intro2 = "The Adventures of Eric Lake!";
+        for (int index = 0; index < intro2.length();
+             index++) {
+            char aChar = intro2.charAt(index);
+            System.out.print(aChar);
+            Thread.sleep(75);
+        }
+        System.out.println(" ");
         Thread.sleep(800);
 
     }
