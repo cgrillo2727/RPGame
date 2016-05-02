@@ -66,18 +66,22 @@ public class QuestManager {
   public static void sequenceA1() throws    InterruptedException{
       player = go.getPlayer(); // Set the player to the current player
       System.out.println("As you exit the store you hear a faint scream in the distance");
-      System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \n1: Yes \n2: No)");
+      System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \ny: Yes \nn: No)");
 
 
       int decision;
       System.out.print("> ");
       decision = Integer.parseInt(io.next());
       switch (decision){
-          case 1: sequenceB1();
+          case y: sequenceB1();
               break;
-          case 2: sequenceB2();
+          case n: sequenceB2();
               break;
       }
+       while (!Objects.equals(type, "y") && !Objects.equals(type, "n")){ 
+			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
+         System.out.print("> "); 
+			type = io.next().toLowerCase();
 
       /*if(decision == 1) {
           sequenceB1();
@@ -118,11 +122,9 @@ public class QuestManager {
 
   }
   public static void sequenceB2() throws InterruptedException{
-      System.out.println("You take 2 steps and start to hear a whistling noise. You look around and can't judge where its coming from.");
-      Thread.sleep(800);
-      System.out.println("Then you look up and an arrow from the sky pierces your head...");
-      System.out.println(player.getName() + " died.");
-
+    System.out.println("You take 2 steps and start to hear a whistling noise. You look around and can't judge where its coming from.");
+    Thread.sleep(800);
+    System.out.println("Then you look up and an arrow from the sky peirces your head and you die...");
     //System.exit(0);
 }
 
@@ -132,7 +134,7 @@ public class QuestManager {
   	String sequenceC1Message2 = "You walk past some bushes and you hear rustling.";
   	String sequenceC1Message3 = "You also hear growling and you keep you eyes on the bushes as you continue to pass.";
   	String sequenceC1Message4 = "Three wolves jump out of the bushes that are slobbering and are foamed at the mouth!!";
-  	String sequenceC1Message5 = "Startled you have to make a quick decision: \n1: RUNNN!!! \n2: See if they are friendly and try to pet one...";
+  	String sequenceC1Message5 = "Startled you have to make a quick decision: \ny: RUNNN!!! \nn: See if they are friendly and try to pet one...";
   	System.out.println(sequenceC1Message1);
     Thread.sleep(1500);
     System.out.println(sequenceC1Message2);
@@ -146,11 +148,15 @@ public class QuestManager {
       System.out.print("> ");
     decision = Integer.parseInt(io.next());
     switch (decision){
-        case 1: sequenceC2();
+        case y: sequenceC2();
             break;
-        case 2: sequenceC3();
+        case n: sequenceC3();
             break;
     }
+     while (!Objects.equals(type, "y") && !Objects.equals(type, "n")){ 
+			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
+         System.out.print("> "); 
+			type = io.next().toLowerCase();
   }
 
   public static void sequenceC2() throws InterruptedException{
@@ -211,8 +217,8 @@ public class QuestManager {
       System.out.println();
   	String sequenceB4Message1 = "After walking for almost 2 days you arrive at the Lake Eric!";
   	String sequenceB4Message2 = "You start searching the Lake for the expensive weapon the woman told you about. ";
-  	String sequenceB4Message3 = "As you walk up and down the lake you come across a bag with the tip of a ... sticking out." ;
-  	String sequenceB4Message4 = "You open the bag and see a ... (1: Take it 2: Kick the bag into the lake)";  
+  	String sequenceB4Message3 = "As you walk up and down the lake you come across the bag the woman told you about." ;
+  	String sequenceB4Message4 = "Do you want to... (y: Take it n: Kick the bag into the lake)";  
   	
  
   	System.out.println(sequenceB4Message1);
@@ -227,11 +233,16 @@ public class QuestManager {
       System.out.print("> ");
     decision = Integer.parseInt(io.next());
     switch (decision){
-        case 1: sequenceB5();
+        case y: sequenceB5();
             break;
-        case 2: sequenceB6();
+        case n: sequenceB6();
             break;
     }
+     while (!Objects.equals(type, "y") && !Objects.equals(type, "n")){ 
+			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
+         System.out.print("> "); 
+			type = io.next().toLowerCase(); 
+
   }
   
     public static void sequenceB5() throws InterruptedException{
