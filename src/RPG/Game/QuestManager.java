@@ -45,7 +45,8 @@ public class QuestManager {
   
   public static void sequenceA1() throws    InterruptedException{
       player = go.getPlayer(); // Set the player to the current player
-      System.out.println("As you exit the store you hear a faint scream in the distance");
+      System.out.println("You weakling!! Get out of my General Goods Shop NNOOWWWW!!!");
+      System.out.println("As you exit the store abruptly you hear a faint scream in the distance");
       System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \ny: Yes \nn: No");
 
 
@@ -67,12 +68,12 @@ public class QuestManager {
 
   }
   public static void sequenceB1() throws InterruptedException{
-      String sequenceB1Message1 = "My child stolen by Trogdor! You must help me get him back!";
+      String sequenceB1Message1 = "My child was stolen by Trogdor the Burninatorrr! You must help me get him back!";
       String sequenceB1Message2 = "He lives in the cave on the far side of the lake, deep beneath the earth";
       String sequenceB1Message3 = "I cannot pay you, but please, take this map. It leads to a very expensive weapon.";
-      String sequenceB1Message4 = "The only weapon that can destroy Trogdor! Maybe some day we will all live in peace";
+      String sequenceB1Message4 = "The only weapon that can destroy The Great Trogdor! Maybe some day we will all live in peace.";
       String sequenceB1Message5 = "You take the map, accepting the quest and starting your journey...";
-      String sequenceB1Message6 = "Many days of walking through the forest awaits you ";
+      String sequenceB1Message6 = "Many days of walking through the forest awaits you... ";
       System.out.println(sequenceB1Message1);
       Thread.sleep(1500);
       System.out.println(sequenceB1Message2);
@@ -110,7 +111,7 @@ public class QuestManager {
   public static void sequenceC1() throws InterruptedException{
   	String sequenceC1Message1 = "As you are walking through the forest that night you hear howling and trees moving in the wind";
   	String sequenceC1Message2 = "You walk past some bushes and you hear rustling.";
-  	String sequenceC1Message3 = "You also hear growling and you keep you eyes on the bushes as you continue to pass.";
+  	String sequenceC1Message3 = "You also hear growling and you keep your eyes on the bushes as you continue to pass.";
   	String sequenceC1Message4 = "Three wolves jump out of the bushes that are slobbering and are foamed at the mouth!!";
   	String sequenceC1Message5 = "Startled you have to make a quick decision: \ny: RUNNN!!! \nn: See if they are friendly and try to pet one...";
   	System.out.println(sequenceC1Message1);
