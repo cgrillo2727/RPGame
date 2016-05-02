@@ -156,9 +156,9 @@ public class CombatManager {
 		Thread.sleep(1000);
 		player.printchar();
 		System.out.println("\n");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		npc.printchar();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		//until someone dies, battle continues
 		while (true) {
 			//player's turn
