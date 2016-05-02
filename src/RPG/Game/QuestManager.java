@@ -56,10 +56,11 @@ public class QuestManager {
   public static void sequenceA1() throws    InterruptedException{
       player = go.getPlayer(); // Set the player to the current player
       System.out.println("As you exit the store you hear a faint scream in the distance");
-      System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. (1: Yes, 2: No)");
+      System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \n1: Yes \n2: No)");
 
 
       int decision;
+      System.out.print("> ");
       decision = Integer.parseInt(io.next());
       switch (decision){
           case 1: sequenceB1();
@@ -117,7 +118,7 @@ public class QuestManager {
   	String sequenceC1Message2 = "You walk past some bushes and you hear rustling.";
   	String sequenceC1Message3 = "You also hear growling and you keep you eyes on the bushes as you continue to pass.";
   	String sequenceC1Message4 = "Three wolves jump out of the bushes that are slobbering and are foamed at the mouth!!";
-  	String sequenceC1Message5 = "Startled you have to make a quick decision (1: RUNNN!!! 2: See if they are friendly and try to pet one...)";
+  	String sequenceC1Message5 = "Startled you have to make a quick decision: \n1: RUNNN!!! \n2: See if they are friendly and try to pet one...";
   	System.out.println(sequenceC1Message1);
     Thread.sleep(1500);
     System.out.println(sequenceC1Message2);
@@ -139,6 +140,7 @@ public class QuestManager {
   }
 
   public static void sequenceC2() throws InterruptedException{
+      System.out.println();
   	String sequenceC2Message1 = "You see that they clearly aren't friendly and take off! ";
   	String sequenceC2Message2 = "The wolves are right on your tail";
   	String sequenceC2Message3 = "You duck and weave in and out of the forest using the trees and bushes to your advantage but they keep cathcing up to you!";
@@ -166,6 +168,7 @@ public class QuestManager {
   }
  
   public static void sequenceC3() throws InterruptedException{
+      System.out.println();
   	String sequenceC3Message1 = "You begin slowly walking towards the wolves.";
   	String sequenceC3Message2 = "The two wolves in the back see you calmly approaching and put their ears down in comfort.";
   	String sequenceC3Message3 = "The leader of the pack isn't amused and barks and all three wolves then jump and attack you.";
@@ -189,6 +192,7 @@ public class QuestManager {
   
   
   public static void sequenceB4() throws InterruptedException{
+      System.out.println();
   	String sequenceB4Message1 = "After walking for almost 2 days you arrive at the Lake Eric!";
   	String sequenceB4Message2 = "You start searching the Lake for the expensive weapon the woman told you about. ";
   	String sequenceB4Message3 = "As you walk up and down the lake you come across a bag with the tip of a ... sticking out." ;
@@ -215,6 +219,7 @@ public class QuestManager {
   }
   
     public static void sequenceB5() throws InterruptedException{
+        System.out.println();
     	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";  
     	String sequenceB5Message2 = "As you're inspecting it you find an etching on it. Its called The ... of Lake Eric!" ;
     	String sequenceB5Message3 = "You feel empowered by The ... of Lake Eric and you proceed to the cave thats on the far side of the Lake.";
@@ -226,6 +231,7 @@ public class QuestManager {
       System.out.println(sequenceB5Message3);
     }
     public static void sequenceB6() throws InterruptedException{
+        System.out.println();
     	String sequenceB6Message1 = "The bag flies into the Lake never to be seen again... ";
     	String sequenceB6Message2 = "You don't need a weapon... Your hands are deadly enough!!!";
     	String sequenceB6Message3 = "You proceed to the cave on the far side of the Lake";
@@ -241,6 +247,7 @@ public class QuestManager {
   
 
   public static void sequenceC4() throws InterruptedException {
+      System.out.println();
       System.out.println("You approach the cave. You enter the cave");
       Thread.sleep(3000);
       System.out.println("The cave is dark....");
@@ -262,6 +269,7 @@ public class QuestManager {
       System.out.println("......");
   }
   public static void sequenceD4() throws InterruptedException {
+      System.out.println();
   	String sequenceD4Message1 = "As you aimlessly walk through this cave you hear loud screams from what sounds like the kid! ";
   	String sequenceD4Message2 = "You start to look more panically and you finally start to see a flashing light far down the tunnel...";
   	String sequenceD4Message3 = "As you get closer and closer you can tell that the light is coming from the Trodor breathing fire! ";
@@ -296,6 +304,7 @@ public class QuestManager {
   	
   }
   public static void sequenceE4() throws InterruptedException {
+      System.out.println();
   	String sequenceE4Message1 = "***Spits blood out of mouth and then wipes mouth***";
   	String sequenceE4Message2 = "You pick up one of the sticks still on fire from Trogdors Burnination and exit the cave.";
   	String sequenceE4Message3 = "When you finally make it outside you are rewarded with an applaud from the townspeople! ";
