@@ -118,9 +118,11 @@ public class QuestManager {
 
   }
   public static void sequenceB2() throws InterruptedException{
-    System.out.println("You take 2 steps and start to hear a whistling noise. You look around and can't judge where its coming from.");
-    Thread.sleep(800);
-    System.out.println("Then you look up and an arrow from the sky peirces your head and you die...");
+      System.out.println("You take 2 steps and start to hear a whistling noise. You look around and can't judge where its coming from.");
+      Thread.sleep(800);
+      System.out.println("Then you look up and an arrow from the sky pierces your head...");
+      System.out.println(player.getName() + " died.");
+
     //System.exit(0);
 }
 
