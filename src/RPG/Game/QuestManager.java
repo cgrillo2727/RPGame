@@ -42,29 +42,7 @@ public class QuestManager {
       sequenceA1();
       
   }
-  /*
-  public static void sequenceController() {
-      Scanner io3 = new Scanner(System.in);
-      int decision = io3.nextInt();
-      if(decision == 1) {
-          sequenceB1();
-      } else {
-          sequenceB2();
-      }
-  }
-*/
-
-  // ----
   
-  /*public static int sequenceA1() {
-      Scanner io2 = new Scanner(System.in);
-      String sequenceAMessage1 = "As you exit the store you hear a faint scream in the distance";
-      String sequenceAMessage2 = "The scream grows louder and louder until a woman appears from the woods, she pleads for your help. (1: Yes, 2: No)";
-      int sequenceAChoice1 = io2.nextInt();
-      return sequenceAChoice1;
-  }
-  */
-
   public static void sequenceA1() throws    InterruptedException{
       player = go.getPlayer(); // Set the player to the current player
       System.out.println("As you exit the store you hear a faint scream in the distance");
@@ -87,11 +65,6 @@ public class QuestManager {
       }
 
 
-      /*if(decision == 1) {
-          sequenceB1();
-      } else {
-          sequenceB2();
-      }*/
   }
   public static void sequenceB1() throws InterruptedException{
       String sequenceB1Message1 = "My child stolen by Trogdor! You must help me get him back!";
@@ -130,8 +103,7 @@ public class QuestManager {
       Thread.sleep(800);
       System.out.println("Then you look up and an arrow from the sky pierces your head...");
       System.out.println(player.getName() + " died.");
-
-    //System.exit(0);
+      sequenceZ();
 }
 
   
@@ -214,7 +186,7 @@ public class QuestManager {
     Thread.sleep(1500);
     System.out.println(sequenceC3Message5);
     Thread.sleep(1500);
-    //System.exit(0);
+    sequenceZ();
   }
 
 
@@ -377,12 +349,18 @@ public class QuestManager {
   }
   
   public static void sequenceZ() {
-  	
-  }
-  /*public static void main(String args[]) throws InterruptedException {
-	  sequenceB5();
-  }*/
+  	String sequenceZMessage1 = player.getName() + "failed to save the child and return him to his mother.";
+   String sequenceZMessage2 = "Trogdor the Burninator will continue to wreak havoc on the town.";
+   String sequenceZMessage3 = "Maybe if you make some better life choices you wouldn't have caused the deaths of thousands.";
+   System.out.println(sequenceZMessage1);
+  	Thread.sleep(3000);
+  	System.out.println(sequenceZMessage2);
+  	Thread.sleep(3000);
+  	System.out.println(sequenceZMessage3);
 
-  // ----
+   
+   
+  }
+ 
      
 } // end class
