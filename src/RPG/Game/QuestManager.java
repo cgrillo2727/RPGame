@@ -339,8 +339,14 @@ public class QuestManager {
     Thread.sleep(3000);
     System.out.println(sequenceD4Message10);
   	Thread.sleep(3000);
-  	CombatManager.combatManager(player, trogdor);
-  	QuestManager.sequenceE4();
+  	boolean won = CombatManager.combatManager(player, trogdor);
+  	switch(won) {
+  		case true: sequenceE4();
+  		break;
+  		case false: sequenceZ();
+  		break;
+  	}
+  	
   }
   public static void sequenceE4() throws InterruptedException {
       System.out.println();
@@ -370,6 +376,9 @@ public class QuestManager {
   	Thread.sleep(3000);
   }
   
+  public static void sequenceZ() {
+  	
+  }
   /*public static void main(String args[]) throws InterruptedException {
 	  sequenceB5();
   }*/
