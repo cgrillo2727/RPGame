@@ -141,6 +141,9 @@ public class go {
         }
     }
 
+    public static boolean getYouWon() {
+       return youWon;
+   }
 
     public static Scanner getScanner(){
         return io;
