@@ -225,7 +225,7 @@ public class Character {
 		Thread.sleep(1000);
 		System.out.println("attack: +"+(int)(this.attack*100)+"%");
 		Thread.sleep(1000);
-		System.out.println("health: "+this.maxHealth());
+		System.out.println("health: "+this.maxHealth);
 
 	}
 			
