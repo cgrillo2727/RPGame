@@ -25,7 +25,7 @@ public class Character {
 	//maxHealth relies on constitution.
 	private double maxHealth;
 	//currentHealth starts out as maxHealth
-	private double currentHealth = maxHealth;
+	private double currentHealth;
 	//damage variables
 	private int strength, dexterity, wisdom;
 	private double accuracy, defense, attack;
@@ -51,6 +51,7 @@ public class Character {
 		this.dexterity = dexterity;
 		this.wisdom = wisdom;
 		this.maxHealth = (10+constitution)*10;
+		this.currentHealth = this.maxHealth;
 	}
 
 
