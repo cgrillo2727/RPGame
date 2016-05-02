@@ -3,7 +3,7 @@ package RPG.Game;
 /**
  * Created by Shawn-L on 4/28/2016.
  */
-public class trogdor {
+public class Trogdor  {
     public static NPC createTrogdor(){
 
         String name="Trogdor";

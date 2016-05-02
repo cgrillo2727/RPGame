@@ -6,7 +6,7 @@ import java.util.Objects;
 /*
  * @author Cecil College | CSC 218 
  * @date created Fri, Apr 15, 2016  2:36:34 AM
- * @last modified Fri, Apr 23, 2016
+ * @last modified Fri, May 01, 2016
  * @description This class represents a game character.
  */
 
@@ -179,13 +179,13 @@ public class Character {
 	//set weapon type based on character type
 	void setWeapon() {
 		if (Objects.equals(this.type,"warrior")) {
-			weapon = "battle axe";
+			weapon = "Sword of the Lake";
 		}
 		else if (Objects.equals(this.type,"wizard")) {
-			weapon = "staff";
+			weapon = "Staff of the Lake";
 		}
 		else {
-			weapon = "longbow";
+			weapon = "Bow of the Lake";
 		}
 	}
 	
@@ -204,11 +204,27 @@ public class Character {
 	
 	
 	
-	void printchar() {
-		System.out.println("name: "+this.name+"\nclass: "+
-				this.type+"\nrace: "+this.race+"\nweapon: "+this.weapon+"\nstrength: "+this.strength+"\nwisdom: "+
-				this.wisdom+"\ndexterity: "+this.dexterity+"\nconstitution: "+this.constitution+"\naccuracy: "+this.accuracy+
-				"\ndefense: "+this.defense+"\nattack: "+this.attack);
+	void printchar() throws InterruptedException {
+		System.out.println("name: "+this.name);
+		Thread.sleep(1000);
+		System.out.println("class: "+this.type);
+		Thread.sleep(1000);
+		System.out.println("race: "+this.race);
+		Thread.sleep(1000);
+		System.out.println("strength: "+this.strength);
+		Thread.sleep(1000);
+		System.out.println("wisdom: "+this.wisdom);
+		Thread.sleep(1000);
+		System.out.println("dexterity: "+this.dexterity);
+		Thread.sleep(1000);
+		System.out.println("constitution: "+this.constitution);
+		Thread.sleep(1000);
+		System.out.println("accuracy: +"+(int)(this.accuracy*100)+"%");
+		Thread.sleep(1000);
+		System.out.println("defense: +"+(int)(this.defense*100)+"%");
+		Thread.sleep(1000);
+		System.out.println("attack: +"+(int)(this.attack*100)+"%");
+		Thread.sleep(1000);
 
 	}
 			

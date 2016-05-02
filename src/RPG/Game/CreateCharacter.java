@@ -35,30 +35,59 @@ public class CreateCharacter {
 	}//end testStat method
 	
 	
+	//primary method to make character
 	public static Character createCharacter() throws InterruptedException{
 	    // scanner init
 	    Scanner io = go.getScanner();
+	    //make shopkeeper
+	    Character shopkeeper = new Character("Warrior","Joe 'the Cat' Smith","Human",10000, 100000, 10000, 10000);
+	    shopkeeper.setAccuracy(1);
+	    shopkeeper.setAttack(1);
+	    shopkeeper.setDefense(.01);
+	    //begin
+		System.out.println("As you wander through a town, you see a quiant general goods shop. You enter the shop");
+		Thread.sleep(1600);
+		
+		System.out.println("You see an old shopkeeper with bandadges over his eyes.");
+		Thread.sleep(1000);
+		System.out.println("Do you size him up? (Enter 'y' or 'n')");
+		System.out.print("> ");
+		String input = io.next().toLowerCase();
+		while (!Objects.equals(input, "y") && !Objects.equals(input,  "n")) {
+			System.out.println("Oops, I didn't catch that. Please enter 'y' or 'n'.");
+			System.out.print("> ");
+			input = io.next().toLowerCase();
+		}
+		if (Objects.equals(input, "y")) {
+			shopkeeper.printchar();
+		}
+		
 		
 	    // welcoming message and get character name
 	    String characterCreationMessage1 = "Welcome to my store! What is your name? ";
-	    System.out.print(characterCreationMessage1); 
+	    System.out.println(characterCreationMessage1);
+        System.out.print("> ");
 	    String name = io.next();
 	    
 	    //get race
 	    System.out.println("My apologies, but the great beast Trogdor has blinded me. Could you tell me what you are? (Enter human, lizard, elf)");
+        System.out.print("> ");
 	    String race = io.next().toLowerCase();
 	    //check that race is an accepted value
 	    while (!Objects.equals(race, "lizard") && !Objects.equals(race, "human") && !Objects.equals(race, "elf")){
-			System.out.print("Oops, I didn't catch that. Please enter 'lizard', 'human', or 'elf'.");
+			System.out.println("Oops, I didn't catch that. Please enter 'lizard', 'human', or 'elf'.");
+            System.out.print("> ");
 			race = io.next().toLowerCase();
 	    }
 	    
 	    //get type(class)
 	    System.out.println("Do you battle with a sword, a bow, or a staff? (Enter warrior, ranger, wizard)");
+        System.out.print("> ");
 	    String type = io.next().toLowerCase();
 	    //check that type is an accepted value
 	    while (!Objects.equals(type, "warrior") && !Objects.equals(type, "ranger") && !Objects.equals(type, "wizard")){
-			System.out.print("Oops, I didn't catch that. Please enter 'warrior', 'ranger', or 'wizard'.");
+			System.out.println("Oops, I didn't catch that. Please enter 'warrior', 'ranger', or 'wizard'.");
+            System.out.print("> ");
 			type = io.next().toLowerCase();
 	    }
 	    
@@ -103,12 +132,6 @@ public class CreateCharacter {
 	    
 	    return player;
 	}//end createCharacter method
-	
-	
-	public CreateCharacter() {
-		
-	}
-	
 	
 	
 	/*//test createCharacter class

@@ -17,19 +17,19 @@ public class CombatManager {
 		if (Objects.equals(player.getType(), "warrior")) {
 			player.setDefense(0.25+player.getConstitution()/100.0);
 			player.setAttack(0.4+player.getWeaponBonus()+player.getStrength()/100.0);			
-			player.setAccuracy(0.80);
+			player.setAccuracy(0.75);
 		}
 		//wizards have have low defense, high attack, and medium accuracy
 		else if (Objects.equals(player.getType(), "wizard")) {
 			player.setDefense(player.getConstitution()/100.0);
 			player.setAttack(0.6+player.getWeaponBonus()+player.getWisdom()/100.0);
-			player.setAccuracy(0.85);
+			player.setAccuracy(0.80);
 		}
 		//rangers have medium defense, low attack, and high accuracy
 		else {
 			player.setDefense(0.05+player.getConstitution()/100.0);
 			player.setAttack(0.5+player.getWeaponBonus()+player.getDexterity()/100.0);
-			player.setAccuracy(0.90);
+			player.setAccuracy(0.85);
 		}
 		
 		//humans get a racial bonus to defense
@@ -152,8 +152,12 @@ public class CombatManager {
 	static void runCombat(Character player, Character npc) throws InterruptedException{
 
 		Scanner io = go.getScanner();
-			System.out.println(player.getName()+" is now fighting "+npc.getName()+".");
+			System.out.println(player.getName()+" is now fighting "+npc.getName()+".\n");
 			Thread.sleep(1000);
+			player.printchar();
+			Thread.sleep(2000);
+			npc.printchar();
+			Thread.sleep(2000);
 			//until someone dies, battle continues
 			while (true) {
 				//player's turn
@@ -174,6 +178,7 @@ public class CombatManager {
 					System.out.println("2. Strong Attack: high damage, normal accuracy");
 					Thread.sleep(2000);
 					System.out.println("3. Defend: Increase defense for 2 rounds");
+                    System.out.print("> ");
 					//try to convert input from user to an integer
 					try {
 						choice = Integer.parseInt(io.next());
@@ -231,13 +236,13 @@ public class CombatManager {
 
 	}
 	
-	//main method that calls all necessary combat methods.
-	static void initiateCombatSession(Character player, Character npc) throws InterruptedException{
+	//Constructor that calls all necessary combat methods.
+	public static void combatManager(Character player, Character npc) throws InterruptedException{
 		setStates(player);
 		setStates(npc);
+		
 		runCombat(player,npc);
 	}
-
 	
 
 	
