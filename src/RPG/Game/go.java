@@ -19,6 +19,10 @@ public class go {
     static String input = null;
     static boolean running = true;
     static Character player = null;
+    static boolean end = false;
+    static String currentMenu = "";
+    static boolean youWon = false;
+
     //static Character trogdor = Trogdor.createTrogdor();
 
     public static void main(String args[]) throws InterruptedException, URISyntaxException, IOException {
@@ -62,44 +66,21 @@ public class go {
             }
         } else {  // we are in a terminal/command prompt/IDE
 
-        boolean end = false;
 
             while(running) {
 
                 if(player != null && !end){ // we have a player character
 
-                    QuestManager.sequenceA1();
-                    
-                    player = null; // reset the player
-                    end = true; // it is the end of the game.
-                    //input="";
-                    //input="quit";
+                    QuestManager.sequenceA1(); // Starts quest
+
+                    endMenu();
+                    checkInput();
 
                 } else {
                     startMenu();
-                    if(input.equals("1") || input.equals("new") || input.equals("new game")){
-                        player = CreateCharacter.createCharacter();
-                        setPlayer(player);
-                    }
+                   checkInput();
                 }
 
-                if(input.equals("quit") || input.equals("q") || input.equals("exit") || end){
-
-                    if (end) {
-                        System.out.println("The End.");
-
-	                    System.out.println();
-	                    System.out.println();
-	                    System.out.println("Thanks for playing!");
-	                    System.out.println("A game by CSC201 Computer Science II Spring 2016");
-	                    System.out.println();
-	                    System.out.println();
-                    }
-                    
-                    closeTerminal();
-                    running = false;
-
-                }
             }
 
         }
@@ -112,16 +93,44 @@ public class go {
     public static void startMenu() throws InterruptedException, IOException {
         clearScreen();
         QuestManager.beginCredits();
+        currentMenu = "start";
         System.out.println();
-        System.out.println(" ***********************************");
-        System.out.println(" *           Main Menu             *");
-        System.out.println(" ***********************************");
-        System.out.println(" *  1. New Game                    *");
-        System.out.println(" *  [ quit/q/exit to Quit ]        *");
-        System.out.println(" ***********************************");
+        System.out.println(" |`````````````````````````````````|");
+        System.out.println(" |           Start Menu            |");
+        System.out.println(" |`````````````````````````````````|");
+        System.out.println(" |  1. New Game                    |");
+        System.out.println(" |  [ quit/q/exit to Quit ]        |");
+        System.out.println(" |_________________________________|");
         System.out.print("> ");
         input = io.next();
         clearScreen();
+    }
+
+    public  static void endMenu() throws IOException, InterruptedException {
+
+        // reset game
+        currentMenu = "end";
+        end = true;
+        player = null;
+        if(youWon){
+            System.out.println("Congrats! You won the game.");
+        }
+        System.out.println("   ____                         ___                 ");
+        System.out.println("  / ___| __ _ _ __ ___   ___   / _ \\__   _____ _ __ ");
+        System.out.println(" | |  _ / _` | '_ ` _ \\ / _ \\ | | | \\ \\ / / _ \\ '__|");
+        System.out.println(" | |_| | (_| | | | | | |  __/ | |_| |\\ V /  __/ |   ");
+        System.out.println("  \\____|\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   ");
+        System.out.println("                                                    ");
+     //   System.out.println(" |`````````````````````````````````|");
+    //    System.out.println(" |           Game Over             |");
+        System.out.println(" |`````````````````````````````````|");
+        System.out.println(" |  1. Return to Main Menu         |");
+        System.out.println(" |  [ quit/q/exit to Quit ]        |");
+        System.out.println(" |_________________________________|");
+        System.out.print("> ");
+        input = io.next();
+        clearScreen();
+
     }
 
     private static void closeTerminal() throws IOException, InterruptedException {
@@ -151,6 +160,49 @@ public class go {
         } else if(isLinux){
             new ProcessBuilder("gnome-terminal -c clear").start();
         }
+    }
+
+    public static void setYouWon(boolean youWon) {
+        go.youWon = youWon;
+    }
+
+    public static void checkInput() throws InterruptedException {
+
+        if((input.equals("1") || input.equals("new") || input.equals("new game")) && currentMenu.equals("start")){
+            player = CreateCharacter.createCharacter();
+            setPlayer(player);
+        } else if((input.equals("1") || input.equals("start") || input.equals("start menu")) && currentMenu.equals("end")){
+
+        }
+        if(input.equals("quit") || input.equals("q") || input.equals("exit")){
+
+            if (end) {
+                System.out.println("The End.");
+
+                System.out.println();
+                System.out.println();
+                System.out.println("Thanks for playing!");
+                System.out.println("A game by CSC201 Computer Science II Spring 2016");
+                System.out.println();
+                System.out.println();
+                for(int i=10;i>=0; Thread.sleep(1000), i--){
+                    if(i==0) {
+                        System.out.print("***    GAME CLOSING...                         ****");
+                        Thread.sleep(1000);
+                        break;
+                    }
+                    System.out.print("***    CLOSING GAME IN " + i + " SECONDS...     ****\r");
+                }
+            } else {
+                System.out.println("Shutting down game in 3 seconds.");
+                Thread.sleep(3000);
+            }
+            //closeTerminal();
+            running = false;
+
+        }
+
+
     }
 
 }

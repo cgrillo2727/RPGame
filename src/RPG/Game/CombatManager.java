@@ -203,6 +203,7 @@ public class CombatManager {
 				if (npc.getCurrentHealth()==0) {
 					//print victory message
 					System.out.println("Yay! "+player.getName()+" defeated "+npc.getName()+"!");
+                    go.setYouWon(true);
 					Thread.sleep(1600);
 					//break out of combat
 					break;

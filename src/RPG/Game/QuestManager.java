@@ -71,12 +71,12 @@ public class QuestManager {
       System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \ny: Yes \nn: No)");
 
 
-      String decision;
+      int decision;
       System.out.print("> ");
       decision = io.next();
-      while (!Objects.equals(decision, "y") && !Objects.equals(decision, "n")){ 
-			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
-       System.out.print("> "); 
+      while (!Objects.equals(decision, "y") && !Objects.equals(decision, "n")){
+			System.out.println("Oops, you didn't enter a y or n. Try again!");
+       System.out.print("> ");
        decision = io.next().toLowerCase();
      }
       switch (decision){
@@ -85,7 +85,7 @@ public class QuestManager {
           case "n": sequenceB2();
               break;
       }
-       
+
 
       /*if(decision == 1) {
           sequenceB1();
@@ -126,9 +126,11 @@ public class QuestManager {
 
   }
   public static void sequenceB2() throws InterruptedException{
-    System.out.println("You take 2 steps and start to hear a whistling noise. You look around and can't judge where its coming from.");
-    Thread.sleep(800);
-    System.out.println("Then you look up and an arrow from the sky peirces your head and you die...");
+      System.out.println("You take 2 steps and start to hear a whistling noise. You look around and can't judge where its coming from.");
+      Thread.sleep(800);
+      System.out.println("Then you look up and an arrow from the sky pierces your head...");
+      System.out.println(player.getName() + " died.");
+
     //System.exit(0);
 }
 
@@ -148,13 +150,13 @@ public class QuestManager {
     System.out.println(sequenceC1Message4);
     Thread.sleep(1500);
     System.out.println(sequenceC1Message5);
-    
+
     String decision;
     System.out.print("> ");
     decision = io.next();
-    while (!Objects.equals(decision, "y") && !Objects.equals(decision, "n")){ 
-			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
-     System.out.print("> "); 
+    while (!Objects.equals(decision, "y") && !Objects.equals(decision, "n")){
+			System.out.println("Oops, you didn't enter a y or n. Try again!");
+     System.out.print("> ");
      decision = io.next().toLowerCase();
    }
     switch (decision){
@@ -163,6 +165,11 @@ public class QuestManager {
         case "n": sequenceC3();
             break;
     }
+     while (!Objects.equals(type, "y") && !Objects.equals(type, "n")) {
+         System.out.println("Oops, you didn't enter a y or n. Try again!");
+         System.out.print("> ");
+         type = io.next().toLowerCase();
+     }
   }
 
   public static void sequenceC2() throws InterruptedException{
@@ -194,7 +201,7 @@ public class QuestManager {
 
     sequenceB4();
   }
- 
+
   public static void sequenceC3() throws InterruptedException{
       System.out.println();
   	String sequenceC3Message1 = "You begin slowly walking towards the wolves.";
@@ -214,19 +221,19 @@ public class QuestManager {
     Thread.sleep(1500);
     //System.exit(0);
   }
-  
+
 
   // ----
-  
-  
+
+
   public static void sequenceB4() throws InterruptedException{
       System.out.println();
   	String sequenceB4Message1 = "After walking for almost 2 days you arrive at the Lake Eric!";
   	String sequenceB4Message2 = "You start searching the Lake for the expensive weapon the woman told you about. ";
   	String sequenceB4Message3 = "As you walk up and down the lake you come across the bag the woman told you about." ;
-  	String sequenceB4Message4 = "Do you want to... (y: Take it n: Kick the bag into the lake)";  
-  	
- 
+  	String sequenceB4Message4 = "Do you want to... (y: Take it n: Kick the bag into the lake)";
+
+
   	System.out.println(sequenceB4Message1);
     Thread.sleep(1500);
     System.out.println(sequenceB4Message2);
@@ -238,9 +245,9 @@ public class QuestManager {
     String decision;
     System.out.print("> ");
     decision = io.next();
-    while (!Objects.equals(decision, "y") && !Objects.equals(decision, "n")){ 
-			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
-     System.out.print("> "); 
+    while (!Objects.equals(decision, "y") && !Objects.equals(decision, "n")){
+			System.out.println("Oops, you didn't enter a y or n. Try again!");
+     System.out.print("> ");
      decision = io.next().toLowerCase();
    }
     switch (decision){
@@ -249,6 +256,7 @@ public class QuestManager {
         case "n": sequenceB6();
             break;
     }
+
 
   }
   
@@ -369,9 +377,11 @@ public class QuestManager {
   }
   
   /*public static void main(String args[]) throws InterruptedException {
+
 	  sequenceB5();
   }*/
 
   // ----
      
 } // end class
+
