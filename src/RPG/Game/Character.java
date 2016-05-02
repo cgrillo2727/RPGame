@@ -50,7 +50,7 @@ public class Character {
 		this.strength = strength;
 		this.dexterity = dexterity;
 		this.wisdom = wisdom;
-		this.maxHealth = (10+constitution)*10;
+		this.maxHealth = (5+constitution)*4;
 		this.currentHealth = this.maxHealth;
 	}
 
