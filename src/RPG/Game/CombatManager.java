@@ -173,11 +173,8 @@ public class CombatManager {
 			//get choice of attack/defense from user. loop until they give a valid response
 			while(true) {
 				System.out.println("Select an action:");
-				Thread.sleep(1000);
 				System.out.println("1. Precision Attack: normal damage, high accuracy");
-				Thread.sleep(2000);
 				System.out.println("2. Strong Attack: high damage, normal accuracy");
-				Thread.sleep(2000);
 				System.out.println("3. Defend: Increase defense for 2 rounds");
             			System.out.print("> ");
 				//try to convert input from user to an integer
