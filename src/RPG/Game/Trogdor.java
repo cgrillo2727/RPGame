@@ -9,10 +9,10 @@ public class Trogdor  {
         String name="Trogdor";
         String type="wizard";
         String race="lizard";
-        int constitution = 30;
-        int strength = 5;
-        int dexterity = 5;
-        int wisdom = 10;
+        int constitution = 15;
+        int strength = 100;
+        int dexterity = 100;
+        int wisdom = 15;
 
         return new Character(type, name, race, constitution, strength, dexterity, wisdom);
     }
