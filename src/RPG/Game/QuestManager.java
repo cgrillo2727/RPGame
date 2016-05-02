@@ -4,22 +4,14 @@ import java.util.Scanner;
 
 public class QuestManager {
     //scanner initialize
-    static Scanner io = go.getScanner();
-   static Character player;
-
+	static Scanner io = go.getScanner();
+	static Character player;
+	static Character trogdor = Trogdor.createTrogdor();
+	
   public static void beginCredits()throws InterruptedException{
       System.out.println("Welcome to...");
       Thread.sleep(800);
-      //System.out.println("The Adventures of Eric Lake!");
-      System.out.println("  _____ _            _      _             _                   ");
-      System.out.println(" |_   _| |_  ___    /_\\  __| |_ _____ _ _| |_ _  _ _ _ ___ ___");
-      System.out.println("   | | | ' \\/ -_)  / _ \\/ _` \\ V / -_) ' \\  _| || | '_/ -_|_-<");
-      System.out.println("   |_| |_||_\\___| /_/ \\_\\__,_|\\_/\\___|_||_\\__|\\_,_|_| \\___/__/");
-      System.out.println("       __   ___     _      _         _                        ");
-      System.out.println("  ___ / _| | __|_ _(_)__  | |   __ _| |_____                  ");
-      System.out.println(" / _ \\  _| | _|| '_| / _| | |__/ _` | / / -_)_                ");
-      System.out.println(" \\___/_|   |___|_| |_\\__| |____\\__,_|_\\_\\___(_)               ");
-      System.out.println("                                                              ");
+      System.out.println("The Adventures of Eric Lake!");
       Thread.sleep(800);
 
   }
@@ -112,13 +104,15 @@ public class QuestManager {
       System.out.println("....");
       Thread.sleep(650);
       System.out.println(".....");
+      
+      sequenceC1();
 
   }
   public static void sequenceB2() throws InterruptedException{
     System.out.println("You take 2 steps and start to hear a whistling noise. You look around and can't judge where its coming from.");
     Thread.sleep(800);
     System.out.println("Then you look up and an arrow from the sky peirces your head and you die...");
-    System.exit(0);
+    //System.exit(0);
 }
 
   
@@ -174,6 +168,8 @@ public class QuestManager {
     System.out.println("....");
     Thread.sleep(650);
     System.out.println(".....");
+    
+    sequenceB4();
   }
  
   public static void sequenceC3() throws InterruptedException{
@@ -193,7 +189,7 @@ public class QuestManager {
     Thread.sleep(1500);
     System.out.println(sequenceC3Message5);
     Thread.sleep(1500);
-    System.exit(0);
+    //System.exit(0);
   }
   
 
@@ -229,15 +225,17 @@ public class QuestManager {
   
     public static void sequenceB5() throws InterruptedException{
         System.out.println();
-    	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";  
-    	String sequenceB5Message2 = "As you're inspecting it you find an etching on it. Its called The ... of Lake Eric!" ;
-    	String sequenceB5Message3 = "You feel empowered by The ... of Lake Eric and you proceed to the cave thats on the far side of the Lake.";
+        player.setWeapon();
     	player.setWeaponBonus(0.1);
+    	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";  
+    	String sequenceB5Message2 = "As you're inspecting it you find an etching on it. Its called The "+player.getWeapon()+"!" ;
+    	String sequenceB5Message3 = "You feel empowered by The "+player.getWeapon()+" and you proceed to the cave thats on the far side of the Lake.";
     	System.out.println(sequenceB5Message1);
       Thread.sleep(1500);
       System.out.println(sequenceB5Message2);
       Thread.sleep(1500);
       System.out.println(sequenceB5Message3);
+      sequenceC4();
     }
     public static void sequenceB6() throws InterruptedException{
         System.out.println();
@@ -249,7 +247,7 @@ public class QuestManager {
       System.out.println(sequenceB6Message2);
       Thread.sleep(1500);
       System.out.println(sequenceB6Message3);
-    	
+      sequenceC4();
     }
   
   // ----
@@ -276,6 +274,7 @@ public class QuestManager {
       System.out.println("...");
       Thread.sleep(650);
       System.out.println("......");
+      sequenceD4();
   }
   public static void sequenceD4() throws InterruptedException {
       System.out.println();
@@ -308,9 +307,9 @@ public class QuestManager {
     System.out.println(sequenceD4Message9);
     Thread.sleep(3000);
     System.out.println(sequenceD4Message10);
-  	Thread.sleep(3000);
-  	
-  	
+  	Thread.sleep(3000);  	
+  	CombatManager.combatManager(player, trogdor);
+  	QuestManager.sequenceE4();
   }
   public static void sequenceE4() throws InterruptedException {
       System.out.println();
@@ -320,7 +319,7 @@ public class QuestManager {
   	String sequenceE4Message4 = "The woman runs up to you and hugs you in appreciation as well as her son.";
   	String sequenceE4Message5 = "The head townsman approaches you and says...";
   	String sequenceE4Message6 = "Thank you for killing the Trogdor we will forever be in you gratitude. Please take this.";
-  	String sequenceE4Message7 = "He then begins to hand you a Cup Of Treasure!!";
+  	String sequenceE4Message7 = "He then begins to hand you a Cup Of Golden Treasure!!";
   	String sequenceE4Message8 = "You take the cup and nod, then walk off into the sunset for the next challange that awaits...";
   	System.out.println(sequenceE4Message1);
   	Thread.sleep(3000);
@@ -340,6 +339,10 @@ public class QuestManager {
   	Thread.sleep(3000);
   }
   
+  /*public static void main(String args[]) throws InterruptedException {
+	  
+	  sequenceB5();
+  }*/
   
   // ----
      

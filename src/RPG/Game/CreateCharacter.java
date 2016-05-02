@@ -39,6 +39,8 @@ public class CreateCharacter {
 	public static Character createCharacter() throws InterruptedException{
 	    // scanner init
 	    Scanner io = go.getScanner();
+		System.out.println("You walk into town and enter a shop.");
+		Thread.sleep(1600);
 		
 	    // welcoming message and get character name
 	    String characterCreationMessage1 = "Welcome to my store! What is your name? ";
