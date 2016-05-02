@@ -152,8 +152,12 @@ public class CombatManager {
 	static void runCombat(Character player, Character npc) throws InterruptedException{
 
 		Scanner io = go.getScanner();
-			System.out.println(player.getName()+" is now fighting "+npc.getName()+".");
+			System.out.println(player.getName()+" is now fighting "+npc.getName()+".\n");
 			Thread.sleep(1000);
+			player.printchar();
+			Thread.sleep(2000);
+			npc.printchar();
+			Thread.sleep(2000);
 			//until someone dies, battle continues
 			while (true) {
 				//player's turn
@@ -236,6 +240,7 @@ public class CombatManager {
 	public static void combatManager(Character player, Character npc) throws InterruptedException{
 		setStates(player);
 		setStates(npc);
+		
 		runCombat(player,npc);
 	}
 	
