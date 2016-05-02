@@ -39,7 +39,7 @@ public class CreateCharacter {
 	public static Character createCharacter() throws InterruptedException{
 	    // scanner init
 	    Scanner io = go.getScanner();
-  		System.out.println("The game requires you to make decisions by typing in single characters. \nThe characters or numbers should all be lower case.\nThe game requires you to make the right decisions throughout the quest.\n make the wrong decision, and the game is over. Good luck");	
+  		System.out.println("The game requires you to make decisions by typing in single characters. \nThe characters or numbers should all be lower case.\nThe game requires you to make the right decisions throughout the quest.\n make the wrong decision, and the game is over. Good luck \n \n \n \n");	
 
 	    //make shopkeeper
 	    Character shopkeeper = new Character("Warrior","Joe 'the Cat' Smith","Human",10000, 100000, 10000, 10000);
