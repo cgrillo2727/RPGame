@@ -10,7 +10,16 @@ public class QuestManager {
   public static void beginCredits()throws InterruptedException{
       System.out.println("Welcome to...");
       Thread.sleep(800);
-      System.out.println("The Adventures of Eric Lake!");
+      //System.out.println("The Adventures of Eric Lake!");
+      System.out.println("  _____ _            _      _             _                   ");
+      System.out.println(" |_   _| |_  ___    /_\\  __| |_ _____ _ _| |_ _  _ _ _ ___ ___");
+      System.out.println("   | | | ' \\/ -_)  / _ \\/ _` \\ V / -_) ' \\  _| || | '_/ -_|_-<");
+      System.out.println("   |_| |_||_\\___| /_/ \\_\\__,_|\\_/\\___|_||_\\__|\\_,_|_| \\___/__/");
+      System.out.println("       __   ___     _      _         _                        ");
+      System.out.println("  ___ / _| | __|_ _(_)__  | |   __ _| |_____                  ");
+      System.out.println(" / _ \\  _| | _|| '_| / _| | |__/ _` | / / -_)_                ");
+      System.out.println(" \\___/_|   |___|_| |_\\__| |____\\__,_|_\\_\\___(_)               ");
+      System.out.println("                                                              ");
       Thread.sleep(800);
 
   }
