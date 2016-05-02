@@ -29,10 +29,7 @@ public class QuestManager {
   public static void characterSelfStats(){
       System.out.println();
   }
-  public static void instructions(){
-  System.out.println("The game requires you to make decisions by typing in single characters. \nThe characters or numbers should all be lower case.\nThe game requires you to make the right decisions throughout the quest.\n make the wrong decision, and the game is over. Good luck");	
-  
-  }
+
 
   public static void sectionSwapper() throws InterruptedException{
       Thread.sleep(3000);
