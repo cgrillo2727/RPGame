@@ -71,7 +71,7 @@ public class QuestManager {
       System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \ny: Yes \nn: No)");
 
 
-      int decision;
+      String decision;
       System.out.print("> ");
       decision = io.next();
       while (!Objects.equals(decision, "y") && !Objects.equals(decision, "n")){
@@ -165,11 +165,6 @@ public class QuestManager {
         case "n": sequenceC3();
             break;
     }
-     while (!Objects.equals(type, "y") && !Objects.equals(type, "n")) {
-         System.out.println("Oops, you didn't enter a y or n. Try again!");
-         System.out.print("> ");
-         type = io.next().toLowerCase();
-     }
   }
 
   public static void sequenceC2() throws InterruptedException{
@@ -256,7 +251,6 @@ public class QuestManager {
         case "n": sequenceB6();
             break;
     }
-
 
   }
   
@@ -377,11 +371,9 @@ public class QuestManager {
   }
   
   /*public static void main(String args[]) throws InterruptedException {
-
 	  sequenceB5();
   }*/
 
   // ----
      
 } // end class
-
