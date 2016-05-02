@@ -149,100 +149,101 @@ public class CombatManager {
 	}
 	
 	//method runs combat
-	static void runCombat(Character player, Character npc) throws InterruptedException{
-
+	static boolean runCombat(Character player, Character npc) throws InterruptedException{
+		boolean won;
 		Scanner io = go.getScanner();
-			System.out.println(player.getName()+" is now fighting "+npc.getName()+".\n");
+		System.out.println(player.getName()+" is now fighting "+npc.getName()+".\n");
+		Thread.sleep(1000);
+		player.printchar();
+		Thread.sleep(2000);
+		npc.printchar();
+		Thread.sleep(2000);
+		//until someone dies, battle continues
+		while (true) {
+			//player's turn
+			System.out.println("It is "+player.getName()+"'s turn.\n");
 			Thread.sleep(1000);
-			player.printchar();
-			Thread.sleep(2000);
-			npc.printchar();
-			Thread.sleep(2000);
-			//until someone dies, battle continues
-			while (true) {
-				//player's turn
-				System.out.println("It is "+player.getName()+"'s turn.\n");
+			
+			//reduce counter if defending
+			reduceCounter(player);
+			
+			int choice = 0;
+			
+			//get choice of attack/defense from user. loop until they give a valid response
+			while(true) {
+				System.out.println("Select an action:");
 				Thread.sleep(1000);
-				
-				//reduce counter if defending
-				reduceCounter(player);
-				
-				int choice = 0;
-				
-				//get choice of attack/defense from user. loop until they give a valid response
-				while(true) {
-					System.out.println("Select an action:");
-					Thread.sleep(1000);
-					System.out.println("1. Precision Attack: normal damage, high accuracy");
+				System.out.println("1. Precision Attack: normal damage, high accuracy");
+				Thread.sleep(2000);
+				System.out.println("2. Strong Attack: high damage, normal accuracy");
+				Thread.sleep(2000);
+				System.out.println("3. Defend: Increase defense for 2 rounds");
+            			System.out.print("> ");
+				//try to convert input from user to an integer
+				try {
+					choice = Integer.parseInt(io.next());
+				//if the input is not able to be converted, tell user and loop again
+				} catch (NumberFormatException e) {
+					System.out.println("Oops, I didn't understand that. Please only enter a number.");
 					Thread.sleep(2000);
-					System.out.println("2. Strong Attack: high damage, normal accuracy");
+				}
+				//if input is too high or low, tell user and loop again
+				if (choice<1 || choice >3) {
+					System.out.println("Oops, that number was too high or too low. Please enter 1, 2, or 3.");
 					Thread.sleep(2000);
-					System.out.println("3. Defend: Increase defense for 2 rounds");
-                    System.out.print("> ");
-					//try to convert input from user to an integer
-					try {
-						choice = Integer.parseInt(io.next());
-					//if the input is not able to be converted, tell user and loop again
-					} catch (NumberFormatException e) {
-						System.out.println("Oops, I didn't understand that. Please only enter a number.");
-						Thread.sleep(2000);
-					}
-					//if input is too high or low, tell user and loop again
-					if (choice<1 || choice >3) {
-						System.out.println("Oops, that number was too high or too low. Please enter 1, 2, or 3.");
-						Thread.sleep(2000);
-					}
-					//if input is acceptable, break out of loop
-					else {break;}
 				}
-				
-				//determine if the player hits or not, then deal damage accordingly (or set defense bonus)
-				attack(player, npc, choice);
-				
-				//if npc's health is 0
-				if (npc.getCurrentHealth()==0) {
-					//print victory message
-					System.out.println("Yay! "+player.getName()+" defeated "+npc.getName()+"!");
-                    go.setYouWon(true);
-					Thread.sleep(1600);
-					//break out of combat
-					break;
-				}
-				
-				
-				//npc's turn
-				System.out.println("It is "+npc.getName()+"'s turn.");
-				Thread.sleep(1600);
-
-				//reduce counter if defending
-				reduceCounter(npc);
-				
-				//if npc is defending, randomly select either attack choice (1 or 2). Exclude defend choice (3)
-				if (npc.getDefending()) {choice = ThreadLocalRandom.current().nextInt(1, 3);}
-				//else choose any of the 3 options at random
-				else {choice = ThreadLocalRandom.current().nextInt(1, 4);}
-				//determine if the npc hits and deal damage accordingly (or set defense bonus)
-				attack(npc, player, choice);
-				
-				//if player dies
-				if (player.getCurrentHealth()==0) {
-					//print defeat message
-					System.out.println("Oh no! "+player.getName()+" lost to "+npc.getName()+"!");
-					Thread.sleep(1600);
-					//break out of combat
-					break;
-				}
-				
+				//if input is acceptable, break out of loop
+				else {break;}
 			}
+			
+			//determine if the player hits or not, then deal damage accordingly (or set defense bonus)
+			attack(player, npc, choice);
+			
+			//if npc's health is 0
+			if (npc.getCurrentHealth()==0) {
+				won = true;
+				//print victory message
+				System.out.println("Yay! "+player.getName()+" defeated "+npc.getName()+"!");
+				Thread.sleep(1600);
+				//break out of combat
+				break;
+			}
+			
+			
+			//npc's turn
+			System.out.println("It is "+npc.getName()+"'s turn.");
+			Thread.sleep(1600);
 
+			//reduce counter if defending
+			reduceCounter(npc);
+			
+			//if npc is defending, randomly select either attack choice (1 or 2). Exclude defend choice (3)
+			if (npc.getDefending()) {choice = ThreadLocalRandom.current().nextInt(1, 3);}
+			//else choose any of the 3 options at random
+			else {choice = ThreadLocalRandom.current().nextInt(1, 4);}
+			//determine if the npc hits and deal damage accordingly (or set defense bonus)
+			attack(npc, player, choice);
+			
+			//if player dies
+			if (player.getCurrentHealth()==0) {
+				won = false;
+				//print defeat message
+				System.out.println("Oh no! "+player.getName()+" lost to "+npc.getName()+"!");
+				Thread.sleep(1600);
+				//break out of combat
+				break;
+			}
+			
+		}
+		return won;
 	}
 	
 	//Constructor that calls all necessary combat methods.
-	public static void combatManager(Character player, Character npc) throws InterruptedException{
+	public static boolean combatManager(Character player, Character npc) throws InterruptedException{
 		setStates(player);
 		setStates(npc);
 		
-		runCombat(player,npc);
+		return runCombat(player,npc);
 	}
 	
 
