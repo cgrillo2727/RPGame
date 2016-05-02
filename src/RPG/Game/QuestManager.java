@@ -45,8 +45,11 @@ public class QuestManager {
   
   public static void sequenceA1() throws    InterruptedException{
       player = go.getPlayer(); // Set the player to the current player
+      Thread.sleep(3000);
       System.out.println("You weakling!! Get out of my General Goods Shop NNOOWWWW!!!");
+      Thread.sleep(3000);
       System.out.println("As you exit the store abruptly you hear a faint scream in the distance");
+      Thread.sleep(3000);
       System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \ny: Yes \nn: No");
 
 
