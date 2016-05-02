@@ -57,10 +57,10 @@ public class QuestManager {
        System.out.print("> ");
        decision = io.next().toLowerCase();
      }
-      switch (decision){
-          case "y": sequenceB1();
+      switch (decision.charAt(0)){
+          case 'y': sequenceB1();
               break;
-          case "n": sequenceB2();
+          case 'n': sequenceB1();
               break;
       }
 
@@ -131,11 +131,11 @@ public class QuestManager {
      System.out.print("> ");
      decision = io.next().toLowerCase();
    }
-    switch (decision){
-        case "y": sequenceC2();
-            break;
-        case "n": sequenceC3();
-            break;
+      switch (decision.charAt(0)){
+          case 'y': sequenceC2();
+              break;
+          case 'n': sequenceC3();
+              break;
     }
   }
 
@@ -216,11 +216,14 @@ public class QuestManager {
 			System.out.println("Oops, you didn't enter a y or n. Try again!");
      System.out.print("> ");
      decision = io.next().toLowerCase();
-   }
-    switch (decision){
-        case "y": sequenceB5();
+
+
+    }
+
+    switch (decision.charAt(0)){
+        case 'y': sequenceB5();
             break;
-        case "n": sequenceB6();
+        case 'n': sequenceB6();
             break;
     }
 
@@ -312,12 +315,9 @@ public class QuestManager {
     System.out.println(sequenceD4Message10);
   	Thread.sleep(3000);
   	boolean won = CombatManager.combatManager(player, trogdor);
-  	switch(won) {
-  		case true: sequenceE4();
-  		break;
-  		case false: sequenceZ();
-  		break;
-  	}
+  	if(won) {sequenceE4();}
+    else {sequenceZ();}
+
   	
   }
   public static void sequenceE4() throws InterruptedException {
@@ -348,7 +348,7 @@ public class QuestManager {
   	Thread.sleep(3000);
   }
   
-  public static void sequenceZ() {
+  public static void sequenceZ() throws InterruptedException{
   	String sequenceZMessage1 = player.getName() + "failed to save the child and return him to his mother.";
    String sequenceZMessage2 = "Trogdor the Burninator will continue to wreak havoc on the town.";
    String sequenceZMessage3 = "Maybe if you make some better life choices you wouldn't have caused the deaths of thousands.";
