@@ -98,11 +98,15 @@ public class CreateCharacter {
 	    int strength = 21, dexterity = 21, wisdom = 21, constitution = 21;
 	    //print out instructions to user
 	    System.out.println("Distribute 60 points among four attributes.");
+	    Thread.sleep(1000);
 	    System.out.println("\tConstitution determines your health.");
+	    Thread.sleep(1000);
 		System.out.println("\tStrength determines your melee attack power.");
+		Thread.sleep(1000);
 		System.out.println("\tDexterity determines your ranged attack power.");
+		Thread.sleep(1000);
 		System.out.println("\tWisdom determines your magical attack power.");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	    //while stats add up to greater than 60, repeat stat gathering
 	    while ((constitution+strength+dexterity+wisdom) > 60){
 	    	System.out.println("No attribute can have more than 20 points.");
