@@ -174,6 +174,7 @@ public class CombatManager {
 					System.out.println("2. Strong Attack: high damage, normal accuracy");
 					Thread.sleep(2000);
 					System.out.println("3. Defend: Increase defense for 2 rounds");
+                    System.out.print("> ");
 					//try to convert input from user to an integer
 					try {
 						choice = Integer.parseInt(io.next());
