@@ -155,6 +155,7 @@ public class CombatManager {
 		System.out.println(player.getName()+" is now fighting "+npc.getName()+".\n");
 		Thread.sleep(1000);
 		player.printchar();
+		System.out.println("\n");
 		Thread.sleep(2000);
 		npc.printchar();
 		Thread.sleep(2000);
