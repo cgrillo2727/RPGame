@@ -47,7 +47,7 @@ public class QuestManager {
   public static void sequenceA1() throws    InterruptedException{
       player = go.getPlayer(); // Set the player to the current player
       System.out.println("As you exit the store you hear a faint scream in the distance");
-      System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \ny: Yes \nn: No)");
+      System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \ny: Yes \nn: No");
 
 
       String decision;
@@ -350,7 +350,7 @@ public class QuestManager {
   }
   
   public static void sequenceZ() throws InterruptedException{
-  	String sequenceZMessage1 = player.getName() + "failed to save the child and return him to his mother.";
+  	String sequenceZMessage1 = player.getName() + " failed to save the child and return him to his mother.";
    String sequenceZMessage2 = "Trogdor the Burninator will continue to wreak havoc on the town.";
    String sequenceZMessage3 = "Maybe if you make some better life choices you wouldn't have caused the deaths of thousands.";
    System.out.println(sequenceZMessage1);
