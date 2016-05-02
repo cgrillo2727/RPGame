@@ -10,8 +10,8 @@ public class Trogdor  {
         String type="wizard";
         String race="lizard";
         int constitution = 15;
-        int strength = 100;
-        int dexterity = 100;
+        int strength = 1000;
+        int dexterity = 1000;
         int wisdom = 15;
 
         return new Character(type, name, race, constitution, strength, dexterity, wisdom);
