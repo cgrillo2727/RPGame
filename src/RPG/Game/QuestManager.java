@@ -6,21 +6,12 @@ public class QuestManager {
     //scanner initialize
 	static Scanner io = go.getScanner();
 	static Character player;
-	static Character trogdor = RPG.Game.trogdor.createTrogdor();
-
+	static Character trogdor = Trogdor.createTrogdor();
+	
   public static void beginCredits()throws InterruptedException{
       System.out.println("Welcome to...");
       Thread.sleep(800);
-      //System.out.println("The Adventures of Eric Lake!");
-      System.out.println("  _____ _            _      _             _                   ");
-      System.out.println(" |_   _| |_  ___    /_\\  __| |_ _____ _ _| |_ _  _ _ _ ___ ___");
-      System.out.println("   | | | ' \\/ -_)  / _ \\/ _` \\ V / -_) ' \\  _| || | '_/ -_|_-<");
-      System.out.println("   |_| |_||_\\___| /_/ \\_\\__,_|\\_/\\___|_||_\\__|\\_,_|_| \\___/__/");
-      System.out.println("       __   ___     _      _         _                        ");
-      System.out.println("  ___ / _| | __|_ _(_)__  | |   __ _| |_____                  ");
-      System.out.println(" / _ \\  _| | _|| '_| / _| | |__/ _` | / / -_)_                ");
-      System.out.println(" \\___/_|   |___|_| |_\\__| |____\\__,_|_\\_\\___(_)               ");
-      System.out.println("                                                              ");
+      System.out.println("The Adventures of Eric Lake!");
       Thread.sleep(800);
 
   }
@@ -66,22 +57,18 @@ public class QuestManager {
   public static void sequenceA1() throws    InterruptedException{
       player = go.getPlayer(); // Set the player to the current player
       System.out.println("As you exit the store you hear a faint scream in the distance");
-      System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \ny: Yes \nn: No)");
+      System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. \n1: Yes \n2: No)");
 
 
       int decision;
       System.out.print("> ");
       decision = Integer.parseInt(io.next());
       switch (decision){
-          case y: sequenceB1();
+          case 1: sequenceB1();
               break;
-          case n: sequenceB2();
+          case 2: sequenceB2();
               break;
       }
-       while (!Objects.equals(type, "y") && !Objects.equals(type, "n")){ 
-			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
-         System.out.print("> "); 
-			type = io.next().toLowerCase();
 
       /*if(decision == 1) {
           sequenceB1();
@@ -117,7 +104,7 @@ public class QuestManager {
       System.out.println("....");
       Thread.sleep(650);
       System.out.println(".....");
-
+      
       sequenceC1();
 
   }
@@ -134,7 +121,7 @@ public class QuestManager {
   	String sequenceC1Message2 = "You walk past some bushes and you hear rustling.";
   	String sequenceC1Message3 = "You also hear growling and you keep you eyes on the bushes as you continue to pass.";
   	String sequenceC1Message4 = "Three wolves jump out of the bushes that are slobbering and are foamed at the mouth!!";
-  	String sequenceC1Message5 = "Startled you have to make a quick decision: \ny: RUNNN!!! \nn: See if they are friendly and try to pet one...";
+  	String sequenceC1Message5 = "Startled you have to make a quick decision: \n1: RUNNN!!! \n2: See if they are friendly and try to pet one...";
   	System.out.println(sequenceC1Message1);
     Thread.sleep(1500);
     System.out.println(sequenceC1Message2);
@@ -148,15 +135,11 @@ public class QuestManager {
       System.out.print("> ");
     decision = Integer.parseInt(io.next());
     switch (decision){
-        case y: sequenceC2();
+        case 1: sequenceC2();
             break;
-        case n: sequenceC3();
+        case 2: sequenceC3();
             break;
     }
-     while (!Objects.equals(type, "y") && !Objects.equals(type, "n")){ 
-			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
-         System.out.print("> "); 
-			type = io.next().toLowerCase();
   }
 
   public static void sequenceC2() throws InterruptedException{
@@ -185,7 +168,7 @@ public class QuestManager {
     System.out.println("....");
     Thread.sleep(650);
     System.out.println(".....");
-
+    
     sequenceB4();
   }
  
@@ -195,7 +178,7 @@ public class QuestManager {
   	String sequenceC3Message2 = "The two wolves in the back see you calmly approaching and put their ears down in comfort.";
   	String sequenceC3Message3 = "The leader of the pack isn't amused and barks and all three wolves then jump and attack you.";
   	String sequenceC3Message4 = "Being surrounded you have to chance to defend yourself and you get torn to pieces";
-  	String sequenceC3Message5 = "When the wolves are through, they leave your cold dead corpse to rot away...";
+  	String sequenceC3Message5 = "When the wolves are through they leave your cold dead corpse to rot away...";
   	System.out.println(sequenceC3Message1);
     Thread.sleep(1500);
     System.out.println(sequenceC3Message2);
@@ -217,8 +200,8 @@ public class QuestManager {
       System.out.println();
   	String sequenceB4Message1 = "After walking for almost 2 days you arrive at the Lake Eric!";
   	String sequenceB4Message2 = "You start searching the Lake for the expensive weapon the woman told you about. ";
-  	String sequenceB4Message3 = "As you walk up and down the lake you come across the bag the woman told you about." ;
-  	String sequenceB4Message4 = "Do you want to... (y: Take it n: Kick the bag into the lake)";  
+  	String sequenceB4Message3 = "As you walk up and down the lake you come across a bag with the tip of a ... sticking out." ;
+  	String sequenceB4Message4 = "You open the bag and see a ... (1: Take it 2: Kick the bag into the lake)";  
   	
  
   	System.out.println(sequenceB4Message1);
@@ -233,23 +216,18 @@ public class QuestManager {
       System.out.print("> ");
     decision = Integer.parseInt(io.next());
     switch (decision){
-        case y: sequenceB5();
+        case 1: sequenceB5();
             break;
-        case n: sequenceB6();
+        case 2: sequenceB6();
             break;
     }
-     while (!Objects.equals(type, "y") && !Objects.equals(type, "n")){ 
-			System.out.println("Oops, you didn't enter a y or n. Try again!"); 
-         System.out.print("> "); 
-			type = io.next().toLowerCase(); 
-
   }
   
     public static void sequenceB5() throws InterruptedException{
         System.out.println();
         player.setWeapon();
     	player.setWeaponBonus(0.1);
-    	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";
+    	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";  
     	String sequenceB5Message2 = "As you're inspecting it you find an etching on it. Its called The "+player.getWeapon()+"!" ;
     	String sequenceB5Message3 = "You feel empowered by The "+player.getWeapon()+" and you proceed to the cave thats on the far side of the Lake.";
     	System.out.println(sequenceB5Message1);
@@ -329,7 +307,7 @@ public class QuestManager {
     System.out.println(sequenceD4Message9);
     Thread.sleep(3000);
     System.out.println(sequenceD4Message10);
-  	Thread.sleep(3000);
+  	Thread.sleep(3000);  	
   	CombatManager.combatManager(player, trogdor);
   	QuestManager.sequenceE4();
   }
@@ -362,10 +340,10 @@ public class QuestManager {
   }
   
   /*public static void main(String args[]) throws InterruptedException {
-
+	  
 	  sequenceB5();
   }*/
-
+  
   // ----
      
 } // end class
