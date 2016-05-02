@@ -143,8 +143,8 @@ public class QuestManager {
   public static void sequenceC2() throws InterruptedException{
       System.out.println();
   	String sequenceC2Message1 = "You see that they clearly aren't friendly and take off! ";
-  	String sequenceC2Message2 = "The wolves are right on your tail";
-  	String sequenceC2Message3 = "You duck and weave in and out of the forest using the trees and bushes to your advantage but they keep cathcing up to you!";
+  	String sequenceC2Message2 = "The wolves are right on your tail!";
+  	String sequenceC2Message3 = "You duck and weave in and out of the forest, using the trees and bushes to your advantage but they keep cathcing up to you!";
   	String sequenceC2Message4 = "After it felt like you had been running for 3 years, 2 months, 14 days, and 16 hours...";
   	String sequenceC2Message5 =	"You turn around and can see that you lost them and that it is already dawn.";
   	System.out.println(sequenceC2Message1);
@@ -234,7 +234,7 @@ public class QuestManager {
         System.out.println();
         player.setWeapon();
     	player.setWeaponBonus(0.1);
-    	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";
+    	String sequenceB5Message1 = "You take the expensive weapon out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";
     	String sequenceB5Message2 = "As you're inspecting it you find an etching on it. Its called The "+player.getWeapon()+"!" ;
     	String sequenceB5Message3 = "You feel empowered by The "+player.getWeapon()+" and you proceed to the cave thats on the far side of the Lake.";
     	System.out.println(sequenceB5Message1);
@@ -292,9 +292,9 @@ public class QuestManager {
   	String sequenceD4Message5 = "In a might of rage you yell... ";
   	String sequenceD4Message6 = "Trogdorrrrr!!!! You leave that child alone or you will feel the wrath of me!";
   	String sequenceD4Message7 = "***Trogdor turns and growls***";
-    String sequenceD4Message8 = "You puny being... nothing can stop Trogdor!";
-    String sequenceD4Message9 = "(meanwhile the kid runs off attempting to escape Trogdor and exit the cave)";
-    String sequenceD4Message10 = "You shake off some adrenaline and try to focus to prepare to take on the allmighty Trogdor.";
+    	String sequenceD4Message8 = "You puny being... nothing can stop Trogdor!";
+	String sequenceD4Message9 = "(meanwhile the kid runs off attempting to escape Trogdor and exit the cave)";
+        String sequenceD4Message10 = "You shake off some adrenaline and try to focus to prepare to take on the allmighty Trogdor.";
   	System.out.println(sequenceD4Message1);
     Thread.sleep(3000);
     System.out.println(sequenceD4Message2);
