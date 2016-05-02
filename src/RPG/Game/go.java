@@ -61,14 +61,19 @@ public class go {
             }
         } else {  // we are in a terminal/command prompt/IDE
 
-
+        boolean end = false;
 
             while(running) {
 
-                if(player != null){ // we have a player character
+                if(player != null && !end){ // we have a player character
 
                     QuestManager.sequenceA1();
-                    QuestManager.sequenceC4();
+                    System.out.println("The end."); // show credits
+                    player = null; // reset the player
+                    end = true; // it is the end of the game.
+                    //input="";
+                    //input="quit";
+
                 } else {
                     startMenu();
                     if(input.equals("1") || input.equals("new") || input.equals("new game")){
@@ -78,6 +83,10 @@ public class go {
                 }
 
                 if(input.equals("quit") || input.equals("q") || input.equals("exit")){
+
+                    if (end) {
+                        System.out.println("The End.");
+
                     System.out.println();
                     System.out.println();
                     System.out.println("Thanks for playing!");
@@ -92,7 +101,9 @@ public class go {
                         }
                         System.out.print("***    CLOSING GAME IN " + i + " SECONDS...     ****\r");
                     }
-
+                }
+                    System.out.println("Shutting down game in 3 seconds.");
+                    Thread.sleep(3000);
                     closeTerminal();
                     running = false;
 
@@ -107,6 +118,7 @@ public class go {
     }
 
     public static void startMenu() throws InterruptedException, IOException {
+        clearScreen();
         QuestManager.beginCredits();
         System.out.println();
         System.out.println(" ***********************************");
@@ -116,7 +128,7 @@ public class go {
         System.out.println(" *  [ quit/q/exit to Quit ]        *");
         System.out.println(" ***********************************");
         System.out.print("> ");
-        input = io.nextLine();
+        input = io.next();
         clearScreen();
     }
 
