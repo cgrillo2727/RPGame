@@ -178,7 +178,7 @@ public class QuestManager {
   	String sequenceC3Message2 = "The two wolves in the back see you calmly approaching and put their ears down in comfort.";
   	String sequenceC3Message3 = "The leader of the pack isn't amused and barks and all three wolves then jump and attack you.";
   	String sequenceC3Message4 = "Being surrounded you have to chance to defend yourself and you get torn to pieces";
-  	String sequenceC3Message5 = "When the wolves are through they leave your cold dead corpse to rot away...";
+  	String sequenceC3Message5 = "When the wolves are through, they leave your cold dead corpse to rot away...";
   	System.out.println(sequenceC3Message1);
     Thread.sleep(1500);
     System.out.println(sequenceC3Message2);
