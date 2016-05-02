@@ -6,12 +6,21 @@ public class QuestManager {
     //scanner initialize
 	static Scanner io = go.getScanner();
 	static Character player;
-	static Character trogdor = Trogdor.createTrogdor();
-	
+	static Character trogdor = RPG.Game.trogdor.createTrogdor();
+
   public static void beginCredits()throws InterruptedException{
       System.out.println("Welcome to...");
       Thread.sleep(800);
-      System.out.println("The Adventures of Eric Lake!");
+      //System.out.println("The Adventures of Eric Lake!");
+      System.out.println("  _____ _            _      _             _                   ");
+      System.out.println(" |_   _| |_  ___    /_\\  __| |_ _____ _ _| |_ _  _ _ _ ___ ___");
+      System.out.println("   | | | ' \\/ -_)  / _ \\/ _` \\ V / -_) ' \\  _| || | '_/ -_|_-<");
+      System.out.println("   |_| |_||_\\___| /_/ \\_\\__,_|\\_/\\___|_||_\\__|\\_,_|_| \\___/__/");
+      System.out.println("       __   ___     _      _         _                        ");
+      System.out.println("  ___ / _| | __|_ _(_)__  | |   __ _| |_____                  ");
+      System.out.println(" / _ \\  _| | _|| '_| / _| | |__/ _` | / / -_)_                ");
+      System.out.println(" \\___/_|   |___|_| |_\\__| |____\\__,_|_\\_\\___(_)               ");
+      System.out.println("                                                              ");
       Thread.sleep(800);
 
   }
@@ -104,7 +113,7 @@ public class QuestManager {
       System.out.println("....");
       Thread.sleep(650);
       System.out.println(".....");
-      
+
       sequenceC1();
 
   }
@@ -168,7 +177,7 @@ public class QuestManager {
     System.out.println("....");
     Thread.sleep(650);
     System.out.println(".....");
-    
+
     sequenceB4();
   }
  
@@ -227,7 +236,7 @@ public class QuestManager {
         System.out.println();
         player.setWeapon();
     	player.setWeaponBonus(0.1);
-    	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";  
+    	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";
     	String sequenceB5Message2 = "As you're inspecting it you find an etching on it. Its called The "+player.getWeapon()+"!" ;
     	String sequenceB5Message3 = "You feel empowered by The "+player.getWeapon()+" and you proceed to the cave thats on the far side of the Lake.";
     	System.out.println(sequenceB5Message1);
@@ -307,7 +316,7 @@ public class QuestManager {
     System.out.println(sequenceD4Message9);
     Thread.sleep(3000);
     System.out.println(sequenceD4Message10);
-  	Thread.sleep(3000);  	
+  	Thread.sleep(3000);
   	CombatManager.combatManager(player, trogdor);
   	QuestManager.sequenceE4();
   }
@@ -340,10 +349,10 @@ public class QuestManager {
   }
   
   /*public static void main(String args[]) throws InterruptedException {
-	  
+
 	  sequenceB5();
   }*/
-  
+
   // ----
      
 } // end class
