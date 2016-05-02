@@ -3,8 +3,9 @@ import java.util.Scanner;
 
 
 public class QuestManager {
-//scanner initialize
-  static Scanner io = go.getScanner();
+    //scanner initialize
+    static Scanner io = go.getScanner();
+   static Character player;
 
   public static void beginCredits()throws InterruptedException{
       System.out.println("Welcome to...");
@@ -53,7 +54,7 @@ public class QuestManager {
   */
 
   public static void sequenceA1() throws    InterruptedException{
-
+      player = go.getPlayer(); // Set the player to the current player
       System.out.println("As you exit the store you hear a faint scream in the distance");
       System.out.println("The scream grows louder and louder until a woman appears from the woods, she pleads for your help. (1: Yes, 2: No)");
 
@@ -127,6 +128,7 @@ public class QuestManager {
     Thread.sleep(1500);
     System.out.println(sequenceC1Message5);
   	int decision;
+      System.out.print("> ");
     decision = Integer.parseInt(io.next());
     switch (decision){
         case 1: sequenceC2();
@@ -202,6 +204,7 @@ public class QuestManager {
     System.out.println(sequenceB4Message4);
     
     int decision;
+      System.out.print("> ");
     decision = Integer.parseInt(io.next());
     switch (decision){
         case 1: sequenceB5();
@@ -215,7 +218,7 @@ public class QuestManager {
     	String sequenceB5Message1 = "You take it out of the bag and pick it up and it weirdly feels comfortable in your hands as it is an extension of yourself.";  
     	String sequenceB5Message2 = "As you're inspecting it you find an etching on it. Its called The ... of Lake Eric!" ;
     	String sequenceB5Message3 = "You feel empowered by The ... of Lake Eric and you proceed to the cave thats on the far side of the Lake.";
-    	// player.setWeaponBonus(0.1);
+    	player.setWeaponBonus(0.1);
     	System.out.println(sequenceB5Message1);
       Thread.sleep(1500);
       System.out.println(sequenceB5Message2);
@@ -244,7 +247,7 @@ public class QuestManager {
       Thread.sleep(1700);
       System.out.println(".");
       Thread.sleep(650);
-      System.out.println("The cave is weridly quite..");
+      System.out.println("The cave is eerily quiet.");
       Thread.sleep(650);
       System.out.println("...");
       Thread.sleep(650);

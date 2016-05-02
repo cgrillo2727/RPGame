@@ -42,24 +42,29 @@ public class CreateCharacter {
 		
 	    // welcoming message and get character name
 	    String characterCreationMessage1 = "Welcome to my store! What is your name? ";
-	    System.out.print(characterCreationMessage1); 
+	    System.out.println(characterCreationMessage1);
+        System.out.print("> ");
 	    String name = io.next();
 	    
 	    //get race
 	    System.out.println("My apologies, but the great beast Trogdor has blinded me. Could you tell me what you are? (Enter human, lizard, elf)");
+        System.out.print("> ");
 	    String race = io.next().toLowerCase();
 	    //check that race is an accepted value
 	    while (!Objects.equals(race, "lizard") && !Objects.equals(race, "human") && !Objects.equals(race, "elf")){
-			System.out.print("Oops, I didn't catch that. Please enter 'lizard', 'human', or 'elf'.");
+			System.out.println("Oops, I didn't catch that. Please enter 'lizard', 'human', or 'elf'.");
+            System.out.print("> ");
 			race = io.next().toLowerCase();
 	    }
 	    
 	    //get type(class)
 	    System.out.println("Do you battle with a sword, a bow, or a staff? (Enter warrior, ranger, wizard)");
+        System.out.print("> ");
 	    String type = io.next().toLowerCase();
 	    //check that type is an accepted value
 	    while (!Objects.equals(type, "warrior") && !Objects.equals(type, "ranger") && !Objects.equals(type, "wizard")){
-			System.out.print("Oops, I didn't catch that. Please enter 'warrior', 'ranger', or 'wizard'.");
+			System.out.println("Oops, I didn't catch that. Please enter 'warrior', 'ranger', or 'wizard'.");
+            System.out.print("> ");
 			type = io.next().toLowerCase();
 	    }
 	    

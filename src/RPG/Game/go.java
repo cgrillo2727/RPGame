@@ -17,6 +17,8 @@ public class go {
     public static boolean isWindows;
     public static boolean isLinux;
     static String input = null;
+    static boolean running = true;
+    static Character player = null;
 
     public static void main(String args[]) throws InterruptedException, URISyntaxException, IOException {
 
@@ -59,8 +61,6 @@ public class go {
             }
         } else {  // we are in a terminal/command prompt/IDE
 
-            boolean running = true;
-            Character player = null;
 
 
             while(running) {
@@ -73,6 +73,7 @@ public class go {
                     startMenu();
                     if(input.equals("1") || input.equals("new") || input.equals("new game")){
                         player = CreateCharacter.createCharacter();
+                        setPlayer(player);
                     }
                 }
 
@@ -130,6 +131,13 @@ public class go {
 
     public static Scanner getScanner(){
         return io;
+    }
+
+    public static void setPlayer(Character Player){
+        player = Player;
+    }
+    public static Character getPlayer(){
+        return player;
     }
 
     public static void clearScreen() throws IOException, InterruptedException {
