@@ -9,7 +9,7 @@ public class Trogdor  {
         String name="Trogdor";
         String type="wizard";
         String race="lizard";
-        int constitution = 15;
+        int constitution = 20;
         int strength = 1000;
         int dexterity = 1000;
         int wisdom = 15;
